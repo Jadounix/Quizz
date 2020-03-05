@@ -23,9 +23,14 @@
        include '../includes/menu_connexion.php'; ?>
 
        <h1>Bienvenue sur QuizLand !</h1>
-       <p>blabla de présentation</p>
-       <a href="login.php" target="_blank"> <input type="button" value="Se connecter"> </a>
-       <a href="inscription.php" target="_blank"> <input type="button" value="S'inscrire"> </a>
+       <p class="presentation">blabla de présentation</p>
+       <div class="col">
+       <a href="login.php" target="_blank"> <input class="bouton" type="button" value="Se connecter"> </a>
+     </div>
+     <div class="col">
+       <a href="inscription.php" target="_blank"> <input class="bouton" type="button" value="S'inscrire"> </a>
+     </div>
+
       <?php
     }
 

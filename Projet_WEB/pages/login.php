@@ -3,14 +3,15 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Connexion</title>
     <?php include '../lib/bootstrap_header.php'; ?>
+    <link rel="stylesheet" href="style_inscription.css">
   </head>
   <body>
     <?php include '../includes/menu_connexion.php'; ?>
 
     <h1>Connexion à l'espace membre</h1>
-    <form action="index.php" method="POST">
+    <form class="bloc" action="index.php" method="POST">
       <div class="row">
         <div class="form-group col-sm-6">
           <label for="name" class="h4">Login :</label>
@@ -21,7 +22,7 @@
           <input type="password" class="form-control" name="pass_entre" placeholder="Votre mot de passe" required>
         </div>
       </div>
-      <button type="submit" name="connexion"  class="btn btn-success btn-lg pull-right ">Envoyer</button>
+      <button type="submit" name="connexion"  class="bouton">Valider</button>
       <br>
   </form>
   <?php include '../includes/footer.php'; ?>
