@@ -86,7 +86,7 @@
           echo 'je suis connecté en tant que joueur';
         }
       }
-      $_SESSION['etat']=$coJoueur;
+      $_SESSION['etat']=$coJoueur; //garde en mémoire l'état dans lequel est l'utilisateur
       if($coJoueur==false) //si je ne suis pas joueur je teste la base de données des admins
       {
         while ($Tuple=$data_admin->fetch())

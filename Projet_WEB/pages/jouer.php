@@ -29,9 +29,10 @@
     {
       //Passage d'une ligne à l'autre
       $Tuple=$resultat->fetch();
+      $nom_quiz = $Tuple['nom'];
     }
-    echo '<h2>'.$Tuple['nom'].'<h2>'; //On affiche le nom du quiz
-    
+    echo '<h2>'.$nom_quiz.'<h2>'; //On affiche le nom du quiz
+
 
     ?>
     </div>
