@@ -24,10 +24,9 @@
 
        <h1>Bienvenue sur QuizLand !</h1>
        <p class="presentation">blabla de présentation</p>
-       <div class="col">
+       <div class="bloc_bouton">
        <a href="login.php" target="_blank"> <input class="bouton" type="button" value="Se connecter"> </a>
-     </div>
-     <div class="col">
+
        <a href="inscription.php" target="_blank"> <input class="bouton" type="button" value="S'inscrire"> </a>
      </div>
 

@@ -4,7 +4,7 @@ font-family:Courrier, monospace;}
 .bloc{background-color:#e3befc;
 width:70%;
 padding:5%;
-text-align:center;
+
 margin-left: auto; /*pour centrer le bloc*/
 margin-right: auto;
 box-shadow: 2px 2px 5px #6a6a6a;}
@@ -15,5 +15,8 @@ font-family:Verdana, serif;
 border-color : #595959;
 border-radius:10%;
 padding:2%;
-margin-left: auto; /*pour centrer le bloc*/
+margin-left:45%; /*pour centrer le bloc*/
 margin-right: auto;}
+
+.zone_saisie{margin-left:21.7%;}
+.radio{text-align:center;}
