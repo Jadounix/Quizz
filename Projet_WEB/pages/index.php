@@ -49,7 +49,13 @@
     elseif (empty($_POST['login_entre']) and empty($_POST['pass_entre']) and !empty($_SESSION['login_entre']) and $_SESSION['etat']==false)
     {
        include '../includes/menu_deconnexion_ad.php'; ?>
+       <h1>Bienvenue sur QuizCeption !</h1>
+       <p class="presentation">blabla de présentation version admin</p>
 
+       <div class="bloc_bouton">
+         <a href="creation_quiz.php" target="_blank"> <input class="bouton" type="button" value="Créer un quiz"> </a>
+         <a href="voir_quiz.php" target="_blank"> <input class="bouton" type="button" value="Voir mes quiz"> </a>
+       </div>
         <?php
 
         //AFFICHAGE DE LA PAGE
