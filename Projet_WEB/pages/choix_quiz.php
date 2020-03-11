@@ -30,7 +30,7 @@
       echo '<div id="quiz'.$cpt.'">'; //On donne au quiz un id quizn avec n allant de 1 au nombre de quiz
       echo '<h2>'.$Tuple['nom'].'<h2>'; //On affiche le nom du quiz
       echo '<div class="bloc_bouton">'; //On afficher le bouton pour commenecer le quiz
-      echo '<a href="jouer.php" target="_blank"> <input class="bouton" type="button" value="Commencer le quiz"> </a>';
+      echo '<a href="jouer.php?id='.$cpt.'" target="_blank"> <input class="bouton" type="button" value="Commencer le quiz"> </a>';
       echo '</div></div>';
       $cpt++;
     }
