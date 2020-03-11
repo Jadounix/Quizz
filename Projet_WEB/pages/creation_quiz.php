@@ -18,12 +18,12 @@
 <body>
   <?php
   //On est dans l'état "connecté" en tant qu'admin
-  elseif (empty($_POST['login_entre']) and empty($_POST['pass_entre']) and !empty($_SESSION['login_entre']))
+  if (empty($_POST['login_entre']) and empty($_POST['pass_entre']) and !empty($_SESSION['login_entre']))
   {
-   include '../includes/menu_deconnexion.php'; ?>
+   include '../includes/menu_deconnexion_ad.php'; ?>
 
-   <h2> Créer un quiz </h2>
-   <<?php
+   <h4> Créer un quiz </h4>
+   <?php
    $num=1;
    echo '<h1>Question n°'.$num.'</h1>'
     ?>
@@ -45,7 +45,8 @@
 
      <button type="submit" name="connexion"  class="bouton">Enregistrer</button>
    </form>
-
+   <?php
+ }?>
 
   <?php include '../includes/footer.php'; ?>
   <?php include '../lib/bootstrap_footer.php'; ?>

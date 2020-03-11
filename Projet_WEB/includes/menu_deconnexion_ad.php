@@ -16,10 +16,10 @@
             <a class="nav-link" href="#">Jouer</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Créer un quiz</a>
+            <a class="nav-link" href="creation_quiz.php">Créer un quiz</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Voir mes quiz</a>
+            <a class="nav-link" href="voir_quiz.php">Voir mes quiz</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="logout.php">Se déconnecter</a>
