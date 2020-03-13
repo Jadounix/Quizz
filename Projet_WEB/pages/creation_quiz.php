@@ -30,16 +30,20 @@
    <form class="bloc" action="creation_question.php" method="POST">
      <div class="row">
        <div class="form-group col-sm-6">
-         <input type="text" class="zone_saisie" name="login_entre" placeholder="Intitulé de la question" required>
+         <input type="text"  name="lib_entre" placeholder="Intitulé de la question" required>
        </div>
        <div class="form-group col-sm-6">
-         <input type="password" name="pass_entre" placeholder="Choix 1" required>
+         <input type="text" name="lib_rep1_entre" placeholder="Choix 1" required>
        </div>
        <div class="form-group col-sm-6">
-         <input type="password" name="pass_entre" placeholder="Choix 2" required>
+         <input type="text" name="lib_rep2_entre" placeholder="Choix 2" required>
        </div>
        <div class="form-group col-sm-6">
-         <input type="password" name="pass_entre" placeholder="Choix 3" required>
+         <input type="text" name="lib_rep3_entre" placeholder="Choix 3" required>
+       </div>
+       <div class="form-group col-sm-6">
+         <label for="bonne_réponse" class="h5">Quelle est la bonne réponse ?</label>
+         <input type="text"  name="bonne_rep_entre" placeholder="Intitulé de la bonne réponse" required>
        </div>
      </div><br/><br/>
 
