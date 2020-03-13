@@ -21,7 +21,7 @@
     <?php
     //Interrogation de la base de données des quiz
     require("../bdd/connect.php");
-    $req_quiz = 'SELECT * FROM QUIZ';
+    $req_quiz = 'SELECT * FROM QUIZ ';
     $data_quiz = $bdd->query($req_quiz);
     //On trouve la ligne qui correspond à l'id envoyé
     for($i=1;$i<=$_GET['id'];$i++)
@@ -63,9 +63,11 @@
           {
             if($Tuple['no_question']==$TupleR['no_question']) //On cherche si la reponse est bien associée à la question
             {
-              echo '<br>';
-              echo '<input type="radio" name ="reponse" value="valeur">';
-              echo '<label class="libelle_reponse"> '.$TupleR['lib_rep'].'</label>';
+              ?>
+               <br>
+               <input type="radio" name ="reponse<?php echo $Tuple['no_question']?>" value="valeur">
+               <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
+              <?php
             }
           }
         }
