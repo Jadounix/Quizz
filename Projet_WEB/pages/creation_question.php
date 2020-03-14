@@ -10,9 +10,11 @@
   <?php include '../includes/menu_deconnexion_ad.php'; ?>
 
   <?php
-  $nouvNoQuestion=11; //test avec 11, comment faire varier ce num ?
+  $nouvNumQuestion=11; //test avec 11, comment faire varier ce num ?
   $nouvLib = $_POST['lib_entre'];
   $nouvBonneRep = $_POST['bonne_rep_entre'];
+  $nouvTypeO = $_POST['typeO'];
+  $nouvTypeCM = $_POST['typeCM'];
   $nouvLibRep1 = $_POST['lib_rep1_entre'];
   $nouvLibRep2 = $_POST['lib_rep2_entre'];
   $nouvLibRep3 = $_POST['lib_rep3_entre'];
@@ -21,19 +23,24 @@
 
 
   // Ajout de la question à la base de données
-  $requete = $bdd->prepare("INSERT INTO QUESTION(no_question,lib_question,bonne_rep) VALUES (:no_quest,:lib,:br)");
+  $requete = $bdd->prepare("INSERT INTO QUESTION(no_question,lib_question,bonne_rep,type) VALUES (:no_quest,:lib,:br,:type)");
   $requete->bindValue('no_quest',$nouvNumQuestion,PDO::PARAM_INT);
   $requete->bindValue('lib',$nouvLib,PDO::PARAM_STR);
   $requete->bindValue('br',$nouvBonneRep,PDO::PARAM_STR);
-
-
+  if(!empty($nouvTypeO)){
+    $requete->bindValue('type',$nouvTypeO,PDO::PARAM_STR);
+  }
+ elseif(!empty($nouvTypeCM)){
+   $requete->bindValue('type',$nouvTypeCM,PDO::PARAM_STR);
+ }
+ 
   $requete1 = $bdd->prepare("INSERT INTO REPONSE(lib_rep) VALUES (:lib_rep1)");
   $requete1->bindValue('lib_rep1',$nouvLibRep1,PDO::PARAM_STR);
   $requete2 = $bdd->prepare("INSERT INTO REPONSE(lib_rep) VALUES (:lib_rep2)");
   $requete2->bindValue('lib_rep2',$nouvLibRep2,PDO::PARAM_STR);
   $requete3 = $bdd->prepare("INSERT INTO REPONSE(lib_rep) VALUES (:lib_rep3)");
   $requete3->bindValue('lib_rep3',$nouvLibRep3,PDO::PARAM_STR);
-  echo 'Votre question a bien été enregsitrée !';
+  echo 'Votre question a bien été enregistrée !';
 
   $requete->execute();
    ?>

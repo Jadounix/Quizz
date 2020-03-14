@@ -28,6 +28,18 @@
    echo '<h1>Question n°'.$num.'</h1>'
     ?>
    <form class="bloc" action="creation_question.php" method="POST">
+     <div class="form-group col-sm-6">
+       <label for="Type">Quel sera le type de la question ?</label>
+       <br>
+       <input class="radio" type="radio" name="typeO" id="Ouverte"> //pb
+       <label class="radio" for="ouv">Ouverte</label>
+       <br>
+       <input class="radio" type="radio" name="typeCM" id="Choix_multiples"> //pb
+       <label class="radio" for="cm">A choix multiples</label>
+     </div>
+  </form>
+
+   <form class="bloc" action="creation_question.php" method="POST">
      <div class="row">
        <div class="form-group col-sm-6">
          <input type="text"  name="lib_entre" placeholder="Intitulé de la question" required>
