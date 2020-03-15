@@ -53,7 +53,7 @@
        <p class="presentation">blabla de présentation version admin</p>
 
        <div class="bloc_bouton">
-         <a href="creation_quiz.php" target="_blank"> <input class="bouton" type="button" value="Créer un quiz"> </a>
+         <a href="init_creation_quiz.php" target="_blank"> <input class="bouton" type="button" value="Créer un quiz"> </a>
          <a href="voir_quiz.php" target="_blank"> <input class="bouton" type="button" value="Voir mes quiz"> </a>
        </div>
         <?php

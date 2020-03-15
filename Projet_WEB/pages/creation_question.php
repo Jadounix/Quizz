@@ -13,8 +13,7 @@
   $nouvNumQuestion=11; //test avec 11, comment faire varier ce num ?
   $nouvLib = $_POST['lib_entre'];
   $nouvBonneRep = $_POST['bonne_rep_entre'];
-  $nouvTypeO = $_POST['typeO'];
-  $nouvTypeCM = $_POST['typeCM'];
+  $nouvType = $_POST['type'];
   $nouvLibRep1 = $_POST['lib_rep1_entre'];
   $nouvLibRep2 = $_POST['lib_rep2_entre'];
   $nouvLibRep3 = $_POST['lib_rep3_entre'];
@@ -27,13 +26,13 @@
   $requete->bindValue('no_quest',$nouvNumQuestion,PDO::PARAM_INT);
   $requete->bindValue('lib',$nouvLib,PDO::PARAM_STR);
   $requete->bindValue('br',$nouvBonneRep,PDO::PARAM_STR);
-  if(!empty($nouvTypeO)){
-    $requete->bindValue('type',$nouvTypeO,PDO::PARAM_STR);
+  if($nouvType=="ouverte"){
+    $requete->bindValue('type',$nouvType,PDO::PARAM_STR);
   }
- elseif(!empty($nouvTypeCM)){
-   $requete->bindValue('type',$nouvTypeCM,PDO::PARAM_STR);
+ elseif($nouvType=="CM"){
+   $requete->bindValue('type',$nouvType,PDO::PARAM_STR);
  }
- 
+
   $requete1 = $bdd->prepare("INSERT INTO REPONSE(lib_rep) VALUES (:lib_rep1)");
   $requete1->bindValue('lib_rep1',$nouvLibRep1,PDO::PARAM_STR);
   $requete2 = $bdd->prepare("INSERT INTO REPONSE(lib_rep) VALUES (:lib_rep2)");

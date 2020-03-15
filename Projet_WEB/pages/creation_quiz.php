@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style_creation.css">
+  <link rel="stylesheet" href="../css/style_inscription.css">
   <title>Créer un quiz</title>
   <meta name="description">
 
@@ -27,17 +27,19 @@
    $num=1;
    echo '<h1>Question n°'.$num.'</h1>'
     ?>
+
    <form class="bloc" action="creation_question.php" method="POST">
      <div class="form-group col-sm-6">
        <label for="Type">Quel sera le type de la question ?</label>
        <br>
-       <input class="radio" type="radio" name="typeO" id="Ouverte"> //pb
+       <input class="radio" type="radio" name="type" value="ouverte" id="Ouverte"> //pb
        <label class="radio" for="ouv">Ouverte</label>
        <br>
-       <input class="radio" type="radio" name="typeCM" id="Choix_multiples"> //pb
+       <input class="radio" type="radio" name="type" value="CM" id="Choix_multiples"> //pb
        <label class="radio" for="cm">A choix multiples</label>
      </div>
   </form>
+
 
    <form class="bloc" action="creation_question.php" method="POST">
      <div class="row">
@@ -52,6 +54,20 @@
        </div>
        <div class="form-group col-sm-6">
          <input type="text" name="lib_rep3_entre" placeholder="Choix 3" required>
+       </div>
+       <div class="form-group col-sm-6">
+         <label for="bonne_réponse" class="h5">Quelle est la bonne réponse ?</label>
+         <input type="text"  name="bonne_rep_entre" placeholder="Intitulé de la bonne réponse" required>
+       </div>
+     </div><br/><br/>
+
+     <button type="submit" name="connexion"  class="bouton">Enregistrer</button>
+   </form>
+
+   <form class="bloc" action="creation_question.php" method="POST">
+     <div class="row">
+       <div class="form-group col-sm-6">
+         <input type="text"  name="lib_entre" placeholder="Intitulé de la question" required>
        </div>
        <div class="form-group col-sm-6">
          <label for="bonne_réponse" class="h5">Quelle est la bonne réponse ?</label>
