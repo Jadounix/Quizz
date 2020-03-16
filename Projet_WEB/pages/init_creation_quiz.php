@@ -23,7 +23,6 @@
    include '../includes/menu_deconnexion_ad.php'; ?>
 
    <h4> Créer un quiz </h4>
-
     <form class="bloc" action="creation_quiz.php" method="POST">
         <div class="form-group col-sm-6">
           <label for="nb_questions" class="h5">Combien de questions comportera votre quiz ?</label>

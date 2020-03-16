@@ -10,38 +10,54 @@
   <?php include '../includes/menu_deconnexion_ad.php'; ?>
 
   <?php
-  $nouvNumQuestion=11; //test avec 11, comment faire varier ce num ?
-  $nouvLib = $_POST['lib_entre'];
-  $nouvBonneRep = $_POST['bonne_rep_entre'];
-  $nouvType = $_POST['type'];
-  $nouvLibRep1 = $_POST['lib_rep1_entre'];
-  $nouvLibRep2 = $_POST['lib_rep2_entre'];
-  $nouvLibRep3 = $_POST['lib_rep3_entre'];
-
+  //Acces à la base de données des quiz
   require("../bdd/connect.php");
 
+  //On récupère le numero du dernier quiz créé
+  $requete_no_quiz = "SELECT MAX(no_quiz) as max FROM QUIZ";
+  $data_no_quiz = $bdd->query($requete_no_quiz);
+  $Tuple=$data_no_quiz->fetch();
+  $no_new_quiz = $Tuple['max'];
 
-  // Ajout de la question à la base de données
-  $requete = $bdd->prepare("INSERT INTO QUESTION(no_question,lib_question,bonne_rep,type) VALUES (:no_quest,:lib,:br,:type)");
-  $requete->bindValue('no_quest',$nouvNumQuestion,PDO::PARAM_INT);
-  $requete->bindValue('lib',$nouvLib,PDO::PARAM_STR);
-  $requete->bindValue('br',$nouvBonneRep,PDO::PARAM_STR);
-  if($nouvType=="ouverte"){
-    $requete->bindValue('type',$nouvType,PDO::PARAM_STR);
+  $requete_quiz = $bdd->prepare("INSERT INTO QUIZ(no_quiz,nom,meilleur_score,meilleur_temps,temps_max,nb_question,login_ad) VALUES (:no_quiz,:nom,:meilleur_score,:meilleur_temps,:temps_max,:nb_question,:login_ad)");
+  $requete_quiz->bindValue('no_quiz',$no_new_quiz+1,PDO::PARAM_INT);
+  $requete_quiz->bindValue('nom',$_POST['nom_quiz_entre'],PDO::PARAM_STR);
+  $requete_quiz->bindValue('meilleur_score',0,PDO::PARAM_INT);
+  $requete_quiz->bindValue('meilleur_temps',0,PDO::PARAM_INT);
+  $requete_quiz->bindValue('temps_max',$_POST['temps_max_entre'],PDO::PARAM_INT);
+  $requete_quiz->bindValue('nb_question',$_POST['nb_questions_entre'],PDO::PARAM_INT);
+  $requete_quiz->bindValue('login_ad',$_SESSION['login_entre'],PDO::PARAM_STR);
+  $requete_quiz->execute();
+
+  // Ajout des questions à la base de données
+  for($i=1;$i<=$_POST['nb_questions_entre'];$i++)
+  {
+    $requete_quest = $bdd->prepare("INSERT INTO QUESTION(lib_question,bonne_rep,type,no_quiz) VALUES (:lib_question,:bonne_rep,:type,:no_quiz)");
+    $requete_quest->bindValue('lib_question',$_POST['lib_entre'.$i],PDO::PARAM_STR);
+    $requete_quest->bindValue('bonne_rep',$_POST['bonne_rep_entre'.$i],PDO::PARAM_STR);
+    $requete_quest->bindValue('type',$_POST['type_question'.$i],PDO::PARAM_STR);
+    $requete_quest->bindValue('no_quiz',$no_new_quiz+1,PDO::PARAM_INT);
+    $requete_quest->execute();
+
+    //Ajout des réponses correspondantes à chaque question
+    $requete_rep1 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
+    $requete_rep1->bindValue('lib_rep',$_POST['lib_rep1_entre'.$i],PDO::PARAM_STR);
+    $requete_rep1->bindValue('no_question',$i,PDO::PARAM_INT);
+    $requete_rep1->execute();
+
+    $requete_rep2 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
+    $requete_rep2->bindValue('lib_rep',$_POST['lib_rep2_entre'.$i],PDO::PARAM_STR);
+    $requete_rep2->bindValue('no_question',$i,PDO::PARAM_INT);
+    $requete_rep2->execute();
+
+    $requete_rep3 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
+    $requete_rep3->bindValue('lib_rep',$_POST['lib_rep3_entre'.$i],PDO::PARAM_STR);
+    $requete_rep3->bindValue('no_question',$i,PDO::PARAM_INT);
+    $requete_rep3->execute();
   }
- elseif($nouvType=="CM"){
-   $requete->bindValue('type',$nouvType,PDO::PARAM_STR);
- }
 
-  $requete1 = $bdd->prepare("INSERT INTO REPONSE(lib_rep) VALUES (:lib_rep1)");
-  $requete1->bindValue('lib_rep1',$nouvLibRep1,PDO::PARAM_STR);
-  $requete2 = $bdd->prepare("INSERT INTO REPONSE(lib_rep) VALUES (:lib_rep2)");
-  $requete2->bindValue('lib_rep2',$nouvLibRep2,PDO::PARAM_STR);
-  $requete3 = $bdd->prepare("INSERT INTO REPONSE(lib_rep) VALUES (:lib_rep3)");
-  $requete3->bindValue('lib_rep3',$nouvLibRep3,PDO::PARAM_STR);
-  echo 'Votre question a bien été enregistrée !';
-
-  $requete->execute();
+  echo 'Votre questionnaire a bien été créé !'
+  echo '<a href="index.php">Revenir à la page pricipale.</a>';
    ?>
 
   <?php include '../includes/footer.php'; ?>

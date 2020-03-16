@@ -35,16 +35,12 @@
      echo '<div id="quiz'.$cpt.'">'; //On donne au quiz un id quizn avec n allant de 1 au nombre de quiz
      echo '<h2>'.$Tuple['nom'].'<h2>'; //On affiche le nom du quiz
      echo '<div class="bloc_bouton">'; //On afficher le bouton pour commencer le quiz
-     echo '<a href="jouer.php?id='.$cpt.'" target="_blank"> <input class="bouton" type="button" value="Editer"> </a>'; // A modifier
+     echo '<a href="#?id='.$cpt.'" target="_blank"> <input class="bouton" type="button" value="Editer"> </a>'; // A modifier
      echo '</div></div>';
      $cpt++;
    }
     ?>
    </div>
-
-
-
-
 
    <?php
  }?>

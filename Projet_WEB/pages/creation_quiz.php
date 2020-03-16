@@ -17,65 +17,73 @@
 
 <body>
   <?php
-  //On est dans l'état "connecté" en tant qu'admin
-  if (empty($_POST['login_entre']) and empty($_POST['pass_entre']) and !empty($_SESSION['login_entre']))
   {
    include '../includes/menu_deconnexion_ad.php'; ?>
 
    <h4> Créer un quiz </h4>
    <?php
-   $num=1;
-   echo '<h1>Question n°'.$num.'</h1>'
-    ?>
+   $nb_questions_entre = $_POST['nb_questions_entre'];
 
-   <form class="bloc" action="creation_question.php" method="POST">
+   ?><form class="bloc" action="creation_question.php" method="POST">
+
+   <div class="form-group col-sm-6">
+     <label for="Type">Quel est le nom de ce quiz ?</label>
+     <br>
+     <input type="text" name="nom_quiz_entre" placeholder="Nom du quiz" required>
+     <br>
+     <label for="Type">Quel est le temps maximum accordé pour ce quiz ?</label>
+     <br>
+     <input type="text" name="temps_max_entre" placeholder="temps maximum accordé" required>
+   </div>
+
+   <?php
+   for($i=1;$i<=$nb_questions_entre;$i++)
+   {
+     echo '<h1>Question n°'.$i.'</h1>'
+     ?>
      <div class="form-group col-sm-6">
        <label for="Type">Quel sera le type de la question ?</label>
        <br>
-       <input class="radio" type="radio" name="type" value="ouverte" id="Ouverte"> //pb
-       <label class="radio" for="ouv">Ouverte</label>
+       <input class="radio" type="radio" name="type_question<?php echo $i ?>" value="ouverte" id="Ouverte">
+       <label class="radio" for="ouv">Question ouverte</label>
        <br>
-       <input class="radio" type="radio" name="type" value="CM" id="Choix_multiples"> //pb
-       <label class="radio" for="cm">A choix multiples</label>
+       <input class="radio" type="radio" name="type_question<?php echo $i ?>" value="CM" id="Choix_multiples">
+       <label class="radio" for="cm">Question à choix multiples</label>
      </div>
-  </form>
 
-
-   <form class="bloc" action="creation_question.php" method="POST">
-     <div class="row">
-       <div class="form-group col-sm-6">
-         <input type="text"  name="lib_entre" placeholder="Intitulé de la question" required>
-       </div>
-       <div class="form-group col-sm-6">
-         <input type="text" name="lib_rep1_entre" placeholder="Choix 1" required>
-       </div>
-       <div class="form-group col-sm-6">
-         <input type="text" name="lib_rep2_entre" placeholder="Choix 2" required>
-       </div>
-       <div class="form-group col-sm-6">
-         <input type="text" name="lib_rep3_entre" placeholder="Choix 3" required>
-       </div>
-       <div class="form-group col-sm-6">
-         <label for="bonne_réponse" class="h5">Quelle est la bonne réponse ?</label>
-         <input type="text"  name="bonne_rep_entre" placeholder="Intitulé de la bonne réponse" required>
-       </div>
-     </div><br/><br/>
-
-     <button type="submit" name="connexion"  class="bouton">Enregistrer</button>
-   </form>
-
-   <form class="bloc" action="creation_question.php" method="POST">
-     <div class="row">
-       <div class="form-group col-sm-6">
-         <input type="text"  name="lib_entre" placeholder="Intitulé de la question" required>
-       </div>
-       <div class="form-group col-sm-6">
-         <label for="bonne_réponse" class="h5">Quelle est la bonne réponse ?</label>
-         <input type="text"  name="bonne_rep_entre" placeholder="Intitulé de la bonne réponse" required>
-       </div>
-     </div><br/><br/>
-
-     <button type="submit" name="connexion"  class="bouton">Enregistrer</button>
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Quelle est l'intitulé de la question ?</th>
+          <th scope="col">Quelles sont les réponses à proposer ?</th>
+          <th scope="col">Quelle est la bonne réponse ?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" name="lib_entre<?php echo $i ?>" placeholder="Intitulé de la question" required></td>
+          <td><input type="text" name="lib_rep1_entre<?php echo $i ?>" placeholder="Réponse 1" required></td>
+          <td><input type="text" name="bonne_rep_entre<?php echo $i ?>" placeholder="Bonne réponse" required></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="text" name="lib_rep2_entre<?php echo $i ?>" placeholder="Réponse 2" required></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="text" name="lib_rep3_entre<?php echo $i ?>" placeholder="Réponse 3" required></td>
+          <td></td>
+        </tr>
+      </tbody>
+     </table>
+     <br/><br/>
+     <?php
+   }
+    ?>
+    <!-- Permet de garder en mémoire le nombre de questions pour l'envoyer dans le formulaire d'après -->
+    <input name="nb_questions_entre" type="hidden" value="<?php echo $nb_questions_entre ?>">
+    <button type="submit" name="connexion" class="bouton">Enregistrer</button>
    </form>
    <?php
  }?>
