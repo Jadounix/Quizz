@@ -13,9 +13,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Jouer</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="init_creation_quiz.php">Créer un quiz</a>
           </li>
           <li class="nav-item">

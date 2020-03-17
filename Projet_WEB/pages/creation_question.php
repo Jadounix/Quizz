@@ -56,7 +56,7 @@
     $requete_rep3->execute();
   }
 
-  echo 'Votre questionnaire a bien été créé !'
+  echo 'Votre questionnaire a bien été créé !';
   echo '<a href="index.php">Revenir à la page pricipale.</a>';
    ?>
 

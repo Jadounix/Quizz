@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style_inscription.css">
+  <link rel="stylesheet" href="../css/style_creation_quiz.css">
   <title>Créer un quiz</title>
   <meta name="description">
 
@@ -28,18 +28,18 @@
 
    <div class="form-group col-sm-6">
      <label for="Type">Quel est le nom de ce quiz ?</label>
-     <br>
+     <br/>
      <input type="text" name="nom_quiz_entre" placeholder="Nom du quiz" required>
-     <br>
-     <label for="Type">Quel est le temps maximum accordé pour ce quiz ?</label>
-     <br>
-     <input type="text" name="temps_max_entre" placeholder="temps maximum accordé" required>
+     <br/><br/>
+     <label for="Type">Quel est le temps maximum accordé pour ce quiz (en minutes) ?</label>
+     <br/>
+     <input type="text" name="temps_max_entre" placeholder="Temps en minutes" required>
    </div>
-
+<hr/>
    <?php
    for($i=1;$i<=$nb_questions_entre;$i++)
    {
-     echo '<h1>Question n°'.$i.'</h1>'
+     echo '<h2>Question n°'.$i.'</h2>'
      ?>
      <div class="form-group col-sm-6">
        <label for="Type">Quel sera le type de la question ?</label>

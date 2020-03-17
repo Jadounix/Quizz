@@ -17,10 +17,10 @@
 </head>
 
 <body>
-    <h1>Score</h1>
+    <h2>Score</h2>
     <div class="bloc_score">
     <?php
-    
+
 
      ?>
     </div>

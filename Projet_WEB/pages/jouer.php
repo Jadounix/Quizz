@@ -17,7 +17,6 @@
 </head>
 
 <body>
-    <div class="bloc_quiz">
     <?php
     //Interrogation de la base de données des quiz
     require("../bdd/connect.php");
@@ -32,11 +31,11 @@
       $numero_quiz = $Tuple['no_quiz'];
       $nb_question = $Tuple['nb_question'];
     }
-    echo '<h1>'.$nom_quiz.'<h1>'; //On affiche le nom du quiz
-    echo '<hr>';
+    echo '<h2>'.$nom_quiz.'</h2>'; //On affiche le nom du quiz
+    echo '<hr/>';
 
     //Début du quiz sous la forme d'un formulaire
-    echo '<form action="resultat.php" method="POST">';
+    echo '<div class="bloc_quiz"><form action="resultat.php" method="POST">';
     //Interrogation de la base de données des questions
     $req_questions = 'SELECT * FROM QUESTION';
     $data_questions = $bdd->query($req_questions);
@@ -47,7 +46,7 @@
       if($Tuple['no_quiz']==$numero_quiz)
       {
         //Libellé de la question
-        echo '<div class="libelle_question">'.$Tuple['lib_question'].'</div>';
+        echo '<br/><strong><div class="libelle_question">'.$Tuple['lib_question'].'</div></strong>';
         //Si question ouverte
         if($Tuple['type']=='ouverte')
         {

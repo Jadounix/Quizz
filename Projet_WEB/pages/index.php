@@ -23,11 +23,12 @@
        include '../includes/menu_connexion.php'; ?>
 
        <h1>Bienvenue sur QuizCeption !</h1>
+       <br/>
        <p class="presentation">blabla de présentation</p>
        <div class="bloc_bouton">
-       <a href="login.php" target="_blank"> <input class="bouton" type="button" value="Se connecter"> </a>
+       <a href="login.php"> <input class="bouton" type="button" value="Se connecter"> </a>
 
-       <a href="inscription.php" target="_blank"> <input class="bouton" type="button" value="S'inscrire"> </a>
+       <a href="inscription.php"> <input class="bouton" type="button" value="S'inscrire"> </a>
        </div>
 
       <?php
@@ -37,7 +38,13 @@
     elseif (empty($_POST['login_entre']) and empty($_POST['pass_entre']) and !empty($_SESSION['login_entre']) and $_SESSION['etat']==true)
     {
        include '../includes/menu_deconnexion.php'; ?>
+       <h1>Bienvenue sur QuizCeption !</h1>
+       <br/>
+       <p class="presentation">blabla de présentation version joueur</p>
 
+       <div class="bloc_bouton">
+         <a href="jouer.php"> <input class="bouton" type="button" value="Jouer !"> </a>
+       </div>
         <?php
 
         //AFFICHAGE DE LA PAGE
@@ -50,11 +57,12 @@
     {
        include '../includes/menu_deconnexion_ad.php'; ?>
        <h1>Bienvenue sur QuizCeption !</h1>
+       <br/>
        <p class="presentation">blabla de présentation version admin</p>
 
        <div class="bloc_bouton">
-         <a href="init_creation_quiz.php" target="_blank"> <input class="bouton" type="button" value="Créer un quiz"> </a>
-         <a href="voir_quiz.php" target="_blank"> <input class="bouton" type="button" value="Voir mes quiz"> </a>
+         <a href="init_creation_quiz.php"> <input class="bouton" type="button" value="Créer un quiz"> </a>
+         <a href="voir_quiz.php"> <input class="bouton" type="button" value="Voir mes quiz"> </a>
        </div>
         <?php
 
