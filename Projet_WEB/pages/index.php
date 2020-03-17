@@ -43,13 +43,11 @@
        <p class="presentation">blabla de présentation version joueur</p>
 
        <div class="bloc_bouton">
-         <a href="jouer.php"> <input class="bouton" type="button" value="Jouer !"> </a>
+         <a href="choix_quiz.php"> <input class="bouton" type="button" value="Jouer !"> </a>
        </div>
         <?php
 
         //AFFICHAGE DE LA PAGE
-        echo 'je suis joueur';
-
     }
 
     //On est dans l'état "connecté" en tant qu'admin
@@ -67,8 +65,6 @@
         <?php
 
         //AFFICHAGE DE LA PAGE
-        echo 'je suis ad';
-
     }
 
     //Si on vient ici après une première tentative de connexion
@@ -97,7 +93,6 @@
           <?php
           $coJoueur = true; // je suis connecté donc pas besoin d'aller voir chez les admins
           //AFFICHAGE DE LA PAGE EN TANT QU JOUEUR
-          echo 'je suis connecté en tant que joueur';
         }
       }
       $_SESSION['etat']=$coJoueur; //garde en mémoire l'état dans lequel est l'utilisateur
@@ -112,7 +107,6 @@
 
             <?php
             //AFFICHAGE DE LA PAGE EN TANT QU'admin
-            echo 'je suis connecté en tant que ad';
           }
           else
           {
