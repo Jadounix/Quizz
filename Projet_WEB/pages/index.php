@@ -17,7 +17,7 @@
 
 <body>
     <?php
-    //Si on est pas connecté
+    //L'utilisateur n'est pas connecté
     if(empty($_POST['login_entre']) and empty($_POST['pass_entre']) and empty($_SESSION['login_entre']))
     {
        include '../includes/menu_connexion.php'; ?>
@@ -83,28 +83,48 @@
         {
           ?>
           <?php include '../includes/menu_deconnexion.php'; ?>
+          <h1>Bienvenue sur QuizCeption !</h1>
+          <br/>
+          <p class="presentation">blabla de présentation version joueur</p>
 
+          <div class="bloc_bouton">
+            <a href="choix_quiz.php"> <input class="bouton" type="button" value="Jouer !"> </a>
+          </div>
           <?php
           $coJoueur = true; // je suis connecté donc pas besoin d'aller voir chez les admins
         }
       }
       $_SESSION['etat']=$coJoueur; //garde en mémoire l'état dans lequel est l'utilisateur
+      $coAdmin = false;
       if($coJoueur==false) //si je ne suis pas joueur je teste la base de données des admins
       {
         while ($Tuple=$data_admin->fetch())
         {
           if($Tuple['login_ad']==$login_entre and $Tuple['mdp_ad']==$pass_entre)
           {
-            ?>
-            <?php include '../includes/menu_deconnexion_ad.php'; ?>
-
-            <?php
-          }
-          else
-          {
-            echo 'Login ou mot de passe incorrect';
+            $coAdmin = true;
           }
         }
+      }
+      //Affichage de la page
+      if($coAdmin==true)
+      {
+        include '../includes/menu_deconnexion_ad.php'; ?>
+
+        <h1>Bienvenue sur QuizCeption !</h1>
+        <br/>
+        <p class="presentation">blabla de présentation version admin</p>
+        <div class="bloc_bouton">
+          <a href="init_creation_quiz.php"> <input class="bouton" type="button" value="Créer un quiz"> </a>
+          <a href="voir_quiz.php"> <input class="bouton" type="button" value="Voir mes quiz"> </a>
+        </div>
+         <?php
+      }
+      elseif($coAdmin==false && $coJoueur==false)
+      {
+        include '../includes/menu_connexion.php';
+        echo 'Login ou mot de passe incorrect';
+        session_destroy();
       }
 
     }?>
