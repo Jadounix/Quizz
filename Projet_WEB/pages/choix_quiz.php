@@ -29,11 +29,14 @@
     $cpt=1;
     while ($Tuple=$data->fetch())
     {
-      echo '<div class="col-sm-4"><div class="bloc_quiz" id="quiz'.$cpt.'">'; //On donne au quiz un id quizn avec n allant de 1 au nombre de quiz
-      echo '<h4>'.$Tuple['nom'].'</h4>'; //On affiche le nom du quiz
-      echo '<div class="bloc_bouton">'; //On afficher le bouton pour commenecer le quiz
-      echo '<br/><br/><a href="jouer.php?id='.$cpt.'"> <input class="bouton1" type="button" value="Jouer"> </a>';
-      echo '</div></div></div><br/>';
+     ?>
+      <div class="col-sm-4"><div class="bloc_quiz" id="quiz<?php echo $cpt ?>"> <!-- On donne au quiz un id quizn avec n allant de 1 au nombre de quiz -->
+      <h4><?php echo $Tuple['nom']?></h4> <!-- On affiche le nom du quiz -->
+      <div class="bloc_bouton"> <!-- On afficher le bouton pour commenecer le quiz -->
+      <br/><br/>
+      <a href="jouer.php?id=<?php echo $cpt ?>"> <input class="bouton1" type="button" value="Jouer"></a>
+      </div></div></div><br/>
+      <?php
       $cpt++;
     }
      ?>

@@ -25,23 +25,24 @@
     //On trouve la ligne qui correspond à l'id envoyé
     for($i=1;$i<=$_GET['id'];$i++)
     {
-      //Passage d'une ligne à l'autre
       $Tuple=$data_quiz->fetch();
       $nom_quiz = $Tuple['nom'];
       $numero_quiz = $Tuple['no_quiz'];
       $nb_question = $Tuple['nb_question'];
     }
-    echo '<h2>'.$nom_quiz.'</h2>'; //On affiche le nom du quiz
-    echo '<hr/>';
+    ?>
+    <h2><?php echo $nom_quiz ?></h2>
+    <hr/>
 
-    //Début du quiz sous la forme d'un formulaire
-    echo '<div class="bloc_quiz"><form action="resultat.php" method="POST">';
-    //Interrogation de la base de données des questions
+    <!-- Début du quiz sous la forme d'un formulaire -->
+    <div class="bloc_quiz"><form action="resultat.php" method="POST">
+
+    <!-- Interrogation de la base de données des questions -->
+    <?php
     $req_questions = 'SELECT * FROM QUESTION';
     $data_questions = $bdd->query($req_questions);
     for($i=1;$i<=$nb_question;$i++)
     {
-      //Passage d'une ligne à l'autre
       $Tuple=$data_questions->fetch();
       if($Tuple['no_quiz']==$numero_quiz)
       {
@@ -50,7 +51,7 @@
         //Si question ouverte
         if($Tuple['type']=='ouverte')
         {
-          echo '<textarea id="reponse" class="form-control" required></textarea>';
+          echo '<textarea id="reponse" name="reponse'.$Tuple['no_question'].'" class="form-control" required></textarea>';
         }
         //Si question à choix multiple
         elseif ($Tuple['type']=='CM')
@@ -64,7 +65,7 @@
             {
               ?>
                <br>
-               <input type="radio" name ="reponse<?php echo $Tuple['no_question']?>" value="valeur">
+               <input type="radio" name ="reponse<?php echo $Tuple['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
             }
@@ -73,9 +74,10 @@
         echo '<br><br>';
       }
     }
-    echo '<input type="submit" name="bouton_executer" value="Valider mon quiz" id="bouton_executer">';
-    echo '</form>';
     ?>
+    <input type="submit" name="bouton_executer" value="Valider mon quiz" id="bouton_executer">
+    <input name="nb_questions" type="hidden" value="<?php echo $nb_question ?>">
+    </form>
     </div>
 
   <?php include '../includes/footer.php'; ?>

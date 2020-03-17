@@ -20,9 +20,43 @@
     <h2>Score</h2>
     <div class="bloc_score">
     <?php
+    //Compteur de bonnes réponses
+    $cpt_bonne_rep = 0;
 
-
-     ?>
+    //Parcours de la base de données des questions
+    require("../bdd/connect.php");
+    $req_quest = 'SELECT * FROM QUESTION';
+    $data_quest = $bdd->query($req_quest);
+    for($i=1;$i<=$_POST['nb_questions'];$i++)
+    {
+      $Tuple=$data_quest->fetch();
+      if($Tuple['bonne_rep']==$_POST['reponse'.$i])
+      {
+        $cpt_bonne_rep++;
+      }
+    }
+    ?>
+      <div class="annonce_score">
+        <?php
+        if($cpt_bonne_rep>=7)
+        {
+          ?>
+          <p>Féliciations ! Votre score est de : <?php echo $cpt_bonne_rep ?></p>
+          <?php
+        }
+        elseif ($cpt_bonne_rep<7 && $cpt_bonne_rep>=5)
+        {
+          ?>
+          <p>Pas mal ! Votre score est de : <?php echo $cpt_bonne_rep ?></p>
+          <?php
+        }
+        else {
+          ?>
+          <p>Dommage ! Votre score n'est que de : <?php echo $cpt_bonne_rep ?>. Ne perdez pas espoir, vous pouvez rejouer !</p>
+          <?php
+        }
+         ?>
+      </div>
     </div>
 
   <?php include '../includes/footer.php'; ?>

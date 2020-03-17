@@ -27,10 +27,8 @@
        <p class="presentation">blabla de présentation</p>
        <div class="bloc_bouton">
        <a href="login.php"> <input class="bouton" type="button" value="Se connecter"> </a>
-
        <a href="inscription.php"> <input class="bouton" type="button" value="S'inscrire"> </a>
        </div>
-
       <?php
     }
 
@@ -46,8 +44,6 @@
          <a href="choix_quiz.php"> <input class="bouton" type="button" value="Jouer !"> </a>
        </div>
         <?php
-
-        //AFFICHAGE DE LA PAGE
     }
 
     //On est dans l'état "connecté" en tant qu'admin
@@ -63,8 +59,6 @@
          <a href="voir_quiz.php"> <input class="bouton" type="button" value="Voir mes quiz"> </a>
        </div>
         <?php
-
-        //AFFICHAGE DE LA PAGE
     }
 
     //Si on vient ici après une première tentative de connexion
@@ -92,7 +86,6 @@
 
           <?php
           $coJoueur = true; // je suis connecté donc pas besoin d'aller voir chez les admins
-          //AFFICHAGE DE LA PAGE EN TANT QU JOUEUR
         }
       }
       $_SESSION['etat']=$coJoueur; //garde en mémoire l'état dans lequel est l'utilisateur
@@ -106,7 +99,6 @@
             <?php include '../includes/menu_deconnexion_ad.php'; ?>
 
             <?php
-            //AFFICHAGE DE LA PAGE EN TANT QU'admin
           }
           else
           {
