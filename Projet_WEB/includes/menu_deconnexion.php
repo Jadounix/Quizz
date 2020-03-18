@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/style_header.css">
     <title></title>
   </head>
   <body>
@@ -13,16 +14,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="choix_quiz.php">Jouer</a>
+            <a class="nav-link" id="jouer" href="choix_quiz.php">Jouer</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="voir_score.php">Voir mes meilleurs scores</a>
+            <a class="nav-link" id="voir_scores" href="voir_score.php">Voir mes meilleurs scores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="logout.php">Se déconnecter</a>
+            <a class="nav-link" id="se_deconnecter" href="logout.php">Se déconnecter</a>
           </li>
           <li class="nav-item">
-            <div class="nom"> Connecté en tant que <?php echo $_SESSION['login_entre'] ?> </div>
+            <div class="nav-link" id="etat_connexion"> Connecté en tant que <?php echo $_SESSION['login_entre'] ?> </div>
           </li>
         </ul>
       </div>

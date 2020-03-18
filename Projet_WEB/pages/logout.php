@@ -3,7 +3,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="../css/style_logout.css">
+    <title>Déconnexion</title>
     <?php include '../lib/bootstrap_header.php'; ?>
   </head>
   <body>
@@ -12,9 +13,9 @@
     <?php
     $_SESSION = array();
     session_destroy();
-    echo 'Vous avez bien été déconnecté !';
+    echo '<br/><h5>Vous avez bien été déconnecté !</h5>';
     echo "<br/>";
-    echo '<a href="index.php">Revenir à la page pricipale.</a>';
+    echo '<a class="lien" href="index.php">➔ Revenir à la page principale.</a>';
     ?>
 
     <?php include '../includes/footer.php'; ?>

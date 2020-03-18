@@ -27,7 +27,12 @@
     <form class="bloc" action="creation_quiz.php" method="POST">
         <div class="form-group col-sm-6">
           <label for="nb_questions" class="h5">Combien de questions comportera votre quiz ?</label>
-          <input type="text"  name="nb_questions_entre" placeholder="Nombre de questions" required>
+          <select name="nb_questions_entre">
+              <?php
+              for($i=1;$i<=50;$i++){
+                echo "<option value='".$i."'>".$i."</option>";
+              } ?>
+          </select>
         </div>
         <button type="submit" name="connexion"  class="bouton">Valider</button>
     </form>

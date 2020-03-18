@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/style_header.css">
     <title></title>
   </head>
   <body>
@@ -13,10 +14,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="inscription.php">S'inscrire</a>
+            <a class="nav-link" id="s_inscrire" href="inscription.php">S'inscrire</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php">Se connecter</a>
+            <a class="nav-link" id="se_connecter" href="login.php">Se connecter</a>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link" id="etat_connexion"> Non connecté </div>
           </li>
         </ul>
       </div>
