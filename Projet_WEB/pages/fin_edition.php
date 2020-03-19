@@ -11,47 +11,52 @@
 
   <?php
 
-  $numero_quiz = $_POST['numero_quiz'];
+//EN COURS NE FONCTIONNE PAS
 
-  //Acces à la base de données des quiz
   require("../bdd/connect.php");
 
-  // Ajout des questions à la base de données
-   for($i=1;$i<=$_POST['nb_questions_entre'];$i++)
-   {
-     $requete_quest = $bdd->prepare("INSERT INTO QUESTION(lib_question,bonne_rep) VALUES (:lib_question,:bonne_rep)");
-     $requete_rep = $bdd->prepare("INSERT INTO REPONSE(lib_rep) VALUES (:lib_rep)");
+  //On recherche les questions qui correspondent au quiz
+  $numero_quiz = $_POST['numero_quiz'];
+  $req_questions = "SELECT * FROM QUESTION WHERE no_quiz = $numero_quiz ";
+  $data_questions = $bdd->query($req_questions);
 
-     $requete = $bdd->prepare("UPDATE QUESTION SET ville = :ville WHERE id=:id"))
-      $requete->bindValue('id',$lid , PDO::PARAM_INT );
-      $requete->bindValue('ville',$laville ,PDO::PARAM_STR );
+  //Compteur
+  $i = 0;
 
+  while($Tuple=$data_questions->fetch())
+  {
+    // Ajout des questions à la base de données
+    if(!empty($_POST['new_lib'.$i])) //Un nouveau libellé de question a été entré : on le modifie dans la bdd
+    {
+      $requete_quest = $bdd->prepare("UPDATE QUESTION SET lib_question = :lib_question WHERE no_question = "))
+      $requete_quest->bindValue('lib_question',$_POST['new_lib'.$i],PDO::PARAM_STR);
+      $requete_quest->execute();
+    }
 
-     if(!empty($_POST['new_lib'.$i])) //Un nouveau libellé de question a été entré
-     {
-       $requete_quest->bindValue('lib_question',$_POST['new_lib'.$i],PDO::PARAM_STR);
-       $requete_quest->execute();
-     }
-     if(!empty($_POST['new_reponse_ouverte'.$i])) //Une nouvelle réponse a été entrée sur une question ouverte
-     {
-       $requete_quest->bindValue('bonne_rep',$_POST['new_reponse_ouverte'.$i],PDO::PARAM_STR);
-       $requete_rep->bindValue('lib_rep',$_POST['new_reponse_ouverte'.$i],PDO::PARAM_STR);
+    if(!empty($_POST['new_reponse_ouverte'.$i])) //Une nouvelle réponse a été entrée sur une question ouverte
+    {
+      //On change la bonne réponse dans la base de données des questions
+      $requete_quest = $bdd->prepare("UPDATE QUESTION SET bonne_rep = :bonne_rep WHERE no_question = "))
+      $requete_quest->bindValue('bonne_rep',$_POST['new_reponse_ouverte'.$i],PDO::PARAM_STR);
+      $requete_quest->execute();
 
-       $requete_quest->execute();
-     }
-     if(!empty($_POST['new_reponse_cm'.$i])) //Une nouvelle réponse a été entrée sur une question à choix multiple
-     {
-       $requete_rep->bindValue('lib_rep',$_POST['new_reponse_cm'.$i],PDO::PARAM_STR);
-       $requete_quest->execute();
-     }
+      //On change la réponse dans la base de données des réponse
+      $requete_rep_ouverte = $bdd->prepare("UPDATE REPONSE SET lib_rep = :lib_rep WHERE no_rep = "))
+      $requete_rep->bindValue('lib_rep',$_POST['new_reponse_ouverte'.$i],PDO::PARAM_STR);
+      $requete_rep->execute();
+    }
 
-     //Ajout des réponses correspondantes à chaque question
-     $requete_rep1 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
-     $requete_rep1->bindValue('lib_rep',$_POST['lib_rep1_entre'.$i],PDO::PARAM_STR);
-     $requete_rep1->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);
-     $requete_rep1->execute();
+    if(!empty($_POST['new_reponse_cm'.$i])) //Une nouvelle réponse a été entrée sur une question à choix multiple
+    {
+      $requete_rep->bindValue('lib_rep',$_POST['new_reponse_cm'.$i],PDO::PARAM_STR);
+      $requete_rep->execute();
+    }
+    $i++; //Incrémentation du compteur
+  }
 
-   }
+  $req_rep = 'SELECT * FROM REPONSE';
+  $data_rep = $bdd->query($req_rep);
+
 
   ?>
    <p>Votre questionnaire a bien été modifié !</p>

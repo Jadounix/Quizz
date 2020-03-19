@@ -93,7 +93,6 @@
       ?>
       <input type="submit" name="bouton_executer" value="Valider" id="bouton_executer">
       <input name="numero_quiz" type="hidden" value="<?php echo $numero_quiz ?>">
-      <input name="nb_questions_entre" type="hidden" value="<?php echo $nb_question ?>">
     </form>
     </div>
 
