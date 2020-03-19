@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 10 mars 2020 à 10:20
+-- Généré le : jeu. 19 mars 2020 à 15:02
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.2
 
@@ -81,14 +81,14 @@ CREATE TABLE `question` (
 INSERT INTO `question` (`no_question`, `lib_question`, `bonne_rep`, `type`, `no_quiz`) VALUES
 (1, 'Combien de questions un quiz doit-il contenir de questions ?', '10', 'ouverte', 1),
 (2, 'Comment trouver un bon thème de quiz ?', 'Demander à Juliette et Jade une idée', 'CM', 1),
-(3, 'Parmi les propositions suivantes, laquelle n\'est pas un type de question valable pour un quiz', 'Question entrouverte', 'CM', 1),
-(4, 'Que faut-il faire pour rendre un quiz moins ennuyeux ?', 'Le rendre drôle par la question \"Que faut-il faire pour rendre un quiz moins ennuyeux ?\"', 'CM', 1),
+(3, 'Parmi les propositions suivantes, laquelle n\'est pas un type de question valable pour un quiz ?', 'Question entrouverte', 'CM', 1),
+(4, 'Que faut-il faire pour rendre un quiz moins ennuyeux ?', 'Le rendre drôle par la question : Que faut-il faire pour rendre un quiz moins ennuyeux ?', 'CM', 1),
 (5, 'Quel temps faut-il allouer pour un quiz de 10 questions', '5', 'ouverte', 1),
 (6, 'De quel pays est originaire le Trivial Pursuit ?', 'Québec', 'CM', 1),
 (7, 'Laquelle de ces propositions n\'est pas un support de quiz ?', 'Un journal intime', 'CM', 1),
 (8, ' Au tarot, comment nomme-t-on les cartes 1, 21 et l’excuse ?', 'Les bouts', 'CM', 1),
 (9, 'La question précédente aurait pu être dans un quiz dont le thème serait.. ?', 'Les jeux de cartes', 'CM', 1),
-(10, 'Quelle est la qualité primordiale d\'un quiz', 'Flatter l\'égo de la personne avec des questions faciles (mais pas trop non plus)', 'CM', 1);
+(10, 'Quelle est la qualité primordiale d\'un quiz ?', 'Flatter l\'égo de la personne avec des questions faciles (mais pas trop non plus)', 'CM', 1);
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,7 @@ INSERT INTO `question` (`no_question`, `lib_question`, `bonne_rep`, `type`, `no_
 
 CREATE TABLE `quiz` (
   `no_quiz` int(20) NOT NULL,
-  `nom` varchar(20) NOT NULL,
+  `nom` varchar(200) NOT NULL,
   `meilleur_score` int(20) NOT NULL,
   `meilleur_temps` int(20) NOT NULL,
   `temps_max` int(20) NOT NULL,
@@ -111,7 +111,7 @@ CREATE TABLE `quiz` (
 --
 
 INSERT INTO `quiz` (`no_quiz`, `nom`, `meilleur_score`, `meilleur_temps`, `temps_max`, `nb_question`, `login_ad`) VALUES
-(1, 'Faire un Quiz', 0, 0, 5, 10, NULL);
+(1, 'Comment faire un Quiz ?', 0, 0, 5, 10, NULL);
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ INSERT INTO `reponse` (`no_rep`, `lib_rep`, `no_question`) VALUES
 (6, 'Question à choix multiples', 3),
 (7, 'Mettre la même question en boucle', 4),
 (8, 'Faire un quiz qui contient plus de 100 questions', 4),
-(9, 'Le rendre drôle par la question \"Que faut-il faire pour rendre un quiz moins ennuyeux ?\"', 4),
+(9, 'Le rendre drôle par la question : Que faut-il faire pour rendre un quiz moins ennuyeux ?', 4),
 (10, 'Québec', 6),
 (11, 'Norvège', 6),
 (12, 'Etats-Unis', 6),
@@ -155,6 +155,26 @@ INSERT INTO `reponse` (`no_rep`, `lib_rep`, `no_question`) VALUES
 (23, 'Augmenter la culture générale', 10),
 (24, 'Flatter l\'égo de la personne avec des questions faciles (mais pas trop non plus)', 10),
 (25, 'Détendre la personne devant une tâche divertissante', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `score`
+--
+
+CREATE TABLE `score` (
+  `no_score` int(20) NOT NULL,
+  `nb_points` int(20) NOT NULL,
+  `temps` int(20) NOT NULL,
+  `login_joueur` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `score`
+--
+
+INSERT INTO `score` (`no_score`, `nb_points`, `temps`, `login_joueur`) VALUES
+(1, 7, 0, 'toto');
 
 --
 -- Index pour les tables déchargées
@@ -183,6 +203,40 @@ ALTER TABLE `quiz`
 --
 ALTER TABLE `reponse`
   ADD PRIMARY KEY (`no_rep`);
+
+--
+-- Index pour la table `score`
+--
+ALTER TABLE `score`
+  ADD PRIMARY KEY (`no_score`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `question`
+--
+ALTER TABLE `question`
+  MODIFY `no_question` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT pour la table `quiz`
+--
+ALTER TABLE `quiz`
+  MODIFY `no_quiz` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT pour la table `reponse`
+--
+ALTER TABLE `reponse`
+  MODIFY `no_rep` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT pour la table `score`
+--
+ALTER TABLE `score`
+  MODIFY `no_score` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
