@@ -60,6 +60,16 @@
       </div>
     </div>
 
+    <!-- Enregistrement du score dans la base de données -->
+    <?php
+    $requete = $bdd->prepare("INSERT INTO SCORE(nb_points,temps,login_joueur) VALUES (:nb_points,:temps,:login_joueur)");
+    $requete->bindValue('nb_points',$cpt_bonne_rep,PDO::PARAM_INT);
+    $requete->bindValue('temps',0,PDO::PARAM_INT);
+    $requete->bindValue('login_joueur',$_SESSION['login_entre'],PDO::PARAM_STR);
+
+    $requete->execute();
+     ?>
+
   <?php include '../includes/footer.php'; ?>
   <?php include '../lib/bootstrap_footer.php'; ?>
 

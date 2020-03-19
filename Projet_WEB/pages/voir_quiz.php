@@ -39,7 +39,7 @@
           <h4><?php echo $Tuple['nom'] ?></h4> <!-- On affiche le nom du quiz -->
           <div class="bloc_bouton"> <!--On afficher le bouton pour commencer le quiz -->
             <br/><br/>
-            <a href="#?id=<?php echo $cpt ?>"><input class="bouton1" type="button" value="Editer"></a>
+            <a href="editer_quiz.php?id=<?php echo $cpt ?>"><input class="bouton1" type="button" value="Editer"></a>
           </div>
         </div>
       </div>
