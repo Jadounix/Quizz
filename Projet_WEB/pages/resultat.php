@@ -58,6 +58,10 @@
         }
          ?>
       </div>
+
+      <div class="bloc_bouton">
+        <a href="choix_quiz.php"> <input class="bouton" type="button" value="Jouer à un nouveau quiz"> </a>
+      </div>
     </div>
 
     <!-- Enregistrement du score dans la base de données -->
@@ -66,6 +70,7 @@
     $requete->bindValue('nb_points',$cpt_bonne_rep,PDO::PARAM_INT);
     $requete->bindValue('temps',0,PDO::PARAM_INT);
     $requete->bindValue('login_joueur',$_SESSION['login_entre'],PDO::PARAM_STR);
+
 
     $requete->execute();
      ?>

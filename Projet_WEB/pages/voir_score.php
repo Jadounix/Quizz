@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style_voir_quiiz.css">
+  <!--<link rel="stylesheet" href="../css/style_voir_quiz.css"> en commentaire le temps de tester-->
   <title>Voir mes quiz</title>
   <meta name="description">
 
@@ -34,23 +34,31 @@
 
    $cpt=1;
 
-   while($Tuple=$data_score->fetch())
+
+   while($Tuple_score=$data_score->fetch())
    {
-     if($Tuple['login_joueur']==$_SESSION['login_entre'])
+     if($Tuple_score['login_joueur']==$_SESSION['login_entre'])
      {
        ?>
        <div class="bloc_quiz" id="quiz<?php echo $cpt ?>">
+        <?php
+        while($Tuple_quiz=$data_quiz->fetch()){ //On cherche le nom du quiz associé au numéro du quiz
+          if($Tuple_quiz['no_quiz']==$Tuple_score['no_quiz']){
+            echo '<h3>'.$Tuple_quiz['nom'].'</h3>';
+          }
+        } ?>
+
        <table class="table">
         <thead>
           <tr>
-            <th scope="col">Temps Réalisé</th>
-            <th scope="col">Score Réalisé</th>
+            <th scope="col">Temps réalisé</th>
+            <th scope="col">Score réalisé</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><?php echo $Tuple['temps'] ?></td>
-            <td><?php echo $Tuple['nb_points'] ?></td>
+            <td><?php echo $Tuple_score['temps'] ?></td>
+            <td><?php echo $Tuple_score['nb_points'] ?></td>
           </tr>
         </tbody>
        </table>
