@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style_voir_quiz.css">
+  <link rel="stylesheet" href="../css/style_voir_quiiz.css">
   <title>Voir mes quiz</title>
   <meta name="description">
 
@@ -24,14 +24,22 @@
    <?php
    //Interrogation de la base de données des scores
    require("../bdd/connect.php");
-   $req = 'SELECT * FROM SCORE';
-   $data = $bdd->query($req);
+   $req_score = 'SELECT * FROM SCORE';
+   $data_score = $bdd->query($req_score);
 
-   while($Tuple=$data->fetch())
+   //Interrogation de la base de données des quiz pour retrouver le nom du quiz
+   require("../bdd/connect.php");
+   $req_quiz = 'SELECT * FROM QUIZ';
+   $data_quiz = $bdd->query($req_quiz);
+
+   $cpt=1;
+
+   while($Tuple=$data_score->fetch())
    {
      if($Tuple['login_joueur']==$_SESSION['login_entre'])
      {
        ?>
+       <div class="bloc_quiz" id="quiz<?php echo $cpt ?>">
        <table class="table">
         <thead>
           <tr>
@@ -46,7 +54,9 @@
           </tr>
         </tbody>
        </table>
+     </div>
        <?php
+       $cpt++;
      }
    }
      ?>
