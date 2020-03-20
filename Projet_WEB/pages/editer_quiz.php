@@ -55,6 +55,7 @@
           <label>Modifier la question</label>
           <br>
           <input type="text" name="new_lib<?php echo $i ?>">
+          <input name="numero_question<?php echo $i ?>" type="hidden" value="<?php echo $Tuple['no_question'] ?>">
           <br>
           <?php
 
@@ -64,7 +65,7 @@
             ?>
             <label>Ecrire la nouvelle bonne réponse</label>
             <br>
-            <textarea id="reponse" name="new_reponse_ouverte <?php echo $Tuple['no_question'] ?>" ></textarea>
+            <textarea id="reponse" name="new_reponse_ouverte<?php echo $Tuple['no_question'] ?>" ></textarea>
             <?php
           }
 
@@ -79,18 +80,34 @@
               if($Tuple['no_question']==$TupleR['no_question']) //On cherche si la reponse est bien associée à la question
               {
                 ?>
+                <!-- Label pour le libellé de la réponse à modifier et textarea pour modifier cette réponse -->
                  <br>
                  <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
                  <br>
-                 <textarea id="reponse" name="new_reponse_cm <?php echo $TupleR['no_question'] ?>" placeholder="Modifier la réponse ici" ></textarea>
+                 <textarea id="reponse" name="new_reponse_cm<?php echo $TupleR['no_question'] ?>" placeholder="Modifier la réponse ici" ></textarea>
+                 <br>
                 <?php
               }
             }
+            ?>
+            <!-- Bonne réponse dans le cas d'une question à choix multiple -->
+            <br>
+            <label>Quelle sera la bonne réponse à cette question ?</label>
+            <br>
+            <select name="bonne_reponse_cm<?php echo $TupleR['no_question'] ?>">
+                <?php
+                for($k=1;$k<=3;$k++)
+                {
+                  echo "<option value='".$k."'>La question ".$k."</option>";
+                } ?>
+            </select>
+            <?php
           }
-          echo '<hr>';
+          echo '<hr>'; //Ligne entre chaque question
         }
       }
       ?>
+      <!-- Envoie du formulaire avec le numero de quiz caché -->
       <input type="submit" name="bouton_executer" value="Valider" id="bouton_executer">
       <input name="numero_quiz" type="hidden" value="<?php echo $numero_quiz ?>">
     </form>
