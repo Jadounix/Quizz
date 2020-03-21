@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 19 mars 2020 à 15:02
+-- Généré le : ven. 20 mars 2020 à 12:22
 -- Version du serveur :  10.4.11-MariaDB
--- Version de PHP : 7.4.2
+-- Version de PHP : 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -79,7 +79,7 @@ CREATE TABLE `question` (
 --
 
 INSERT INTO `question` (`no_question`, `lib_question`, `bonne_rep`, `type`, `no_quiz`) VALUES
-(1, 'Combien de questions un quiz doit-il contenir de questions ?', '10', 'ouverte', 1),
+(1, 'Combien de questions un quiz doit-il contenir ?', '10', 'ouverte', 1),
 (2, 'Comment trouver un bon thème de quiz ?', 'Demander à Juliette et Jade une idée', 'CM', 1),
 (3, 'Parmi les propositions suivantes, laquelle n\'est pas un type de question valable pour un quiz ?', 'Question entrouverte', 'CM', 1),
 (4, 'Que faut-il faire pour rendre un quiz moins ennuyeux ?', 'Le rendre drôle par la question : Que faut-il faire pour rendre un quiz moins ennuyeux ?', 'CM', 1),
@@ -154,7 +154,10 @@ INSERT INTO `reponse` (`no_rep`, `lib_rep`, `no_question`) VALUES
 (22, 'L\'ENSC', 9),
 (23, 'Augmenter la culture générale', 10),
 (24, 'Flatter l\'égo de la personne avec des questions faciles (mais pas trop non plus)', 10),
-(25, 'Détendre la personne devant une tâche divertissante', 10);
+(25, 'Détendre la personne devant une tâche divertissante', 10),
+(50, '1', 11),
+(51, '2', 11),
+(52, '3', 11);
 
 -- --------------------------------------------------------
 
@@ -166,15 +169,17 @@ CREATE TABLE `score` (
   `no_score` int(20) NOT NULL,
   `nb_points` int(20) NOT NULL,
   `temps` int(20) NOT NULL,
-  `login_joueur` varchar(20) NOT NULL
+  `login_joueur` varchar(20) NOT NULL,
+  `no_quiz` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `score`
 --
 
-INSERT INTO `score` (`no_score`, `nb_points`, `temps`, `login_joueur`) VALUES
-(1, 7, 0, 'toto');
+INSERT INTO `score` (`no_score`, `nb_points`, `temps`, `login_joueur`, `no_quiz`) VALUES
+(1, 7, 0, 'toto', NULL),
+(4, 0, 0, 'toto', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -230,13 +235,13 @@ ALTER TABLE `quiz`
 -- AUTO_INCREMENT pour la table `reponse`
 --
 ALTER TABLE `reponse`
-  MODIFY `no_rep` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `no_rep` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT pour la table `score`
 --
 ALTER TABLE `score`
-  MODIFY `no_score` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `no_score` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
