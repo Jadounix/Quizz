@@ -83,6 +83,7 @@
                 <!-- Label pour le libellé de la réponse à modifier et textarea pour modifier cette réponse -->
                  <br>
                  <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
+                 <input name="lib_reponse_cm" type="hidden" value="<?php echo $TupleR['lib_rep'] ?>"> <!--Garde en mémoire le libellé de la réponse-->
                  <br>
                  <textarea id="reponse" name="new_reponse_cm<?php echo $TupleR['no_question'] ?>" placeholder="Modifier la réponse ici" ></textarea>
                  <br>
@@ -99,7 +100,8 @@
                 for($k=1;$k<=3;$k++)
                 {
                   echo "<option value='".$k."'>La question ".$k."</option>";
-                } ?>
+                }
+                ?>
             </select>
             <?php
           }
