@@ -33,15 +33,19 @@
     $requete = $bdd->prepare("INSERT INTO SCORE(no_quiz) VALUES (:no_quiz)");
     $requete->bindValue('no_quiz',$numero_quiz,PDO::PARAM_INT);
     ?>
-    
+
     <h2><?php echo $nom_quiz ?></h2>
     <hr/>
 
     <!-- Début du quiz sous la forme d'un formulaire -->
     <div class="bloc_quiz"><form action="resultat.php" method="POST">
 
-    <!-- Interrogation de la base de données des questions -->
+
     <?php
+    // Mise en route du chronomètre
+    $start = microtime(true);
+
+    //Interrogation de la base de données des questions
     $req_questions = 'SELECT * FROM QUESTION';
     $data_questions = $bdd->query($req_questions);
     for($i=1;$i<=$nb_question;$i++)
@@ -80,6 +84,7 @@
     ?>
     <input type="submit" name="bouton_executer" value="Valider mon quiz" id="bouton_executer">
     <input name="nb_questions" type="hidden" value="<?php echo $nb_question ?>">
+    <input name="start" type="hidden" value="<?php echo $start ?>">
     </form>
     </div>
 

@@ -21,6 +21,10 @@
     <br/>
     <div class="bloc_score">
     <?php
+    //Arrêt du chronomètre
+    $stop = microtime(true);
+    $chrono = round($stop - $_POST['start']); //start récupéré avec hidden
+
     //Compteur de bonnes réponses
     $cpt_bonne_rep = 0;
 
@@ -56,6 +60,7 @@
           <p>Dommage ! Votre score n'est que de : <?php echo $cpt_bonne_rep ?>... Ne perdez pas espoir, vous pouvez rejouer !</p>
           <?php
         }
+        echo 'Vous avez réalisé ce quiz en '.($chrono/60).'minute(s) et '.($chrono%60).'secondes'; //problème d'arrondi de la division à revoir
          ?>
       </div>
 
