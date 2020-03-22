@@ -99,7 +99,7 @@
                 <?php
                 for($k=1;$k<=3;$k++)
                 {
-                  echo "<option value='".$k."'>La question ".$k."</option>";
+                  echo "<option value='".$k."'>La réponse ".$k."</option>";
                 }
                 ?>
             </select>
