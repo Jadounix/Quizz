@@ -36,7 +36,7 @@
 
     <!-- Edition du quiz sous la forme d'un formulaire -->
     <div class="bloc_quiz">
-      <form action="fin_edition.php" method="POST">
+      <form action="recup_editer_quiz.php" method="POST">
 
       <!-- Interrogation de la base de données des questions -->
       <?php
