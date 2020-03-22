@@ -67,12 +67,12 @@
         </tr>
         <tr>
           <td></td>
-          <td><input type="text" name="lib_rep2_entre<?php echo $i ?>" placeholder="Réponse 2" required></td>
+          <td><input type="text" name="lib_rep2_entre<?php echo $i ?>" placeholder="Réponse 2"></td>
           <td></td>
         </tr>
         <tr>
           <td></td>
-          <td><input type="text" name="lib_rep3_entre<?php echo $i ?>" placeholder="Réponse 3" required></td>
+          <td><input type="text" name="lib_rep3_entre<?php echo $i ?>" placeholder="Réponse 3"></td>
           <td></td>
         </tr>
       </tbody>
