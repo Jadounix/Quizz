@@ -39,15 +39,12 @@
    {
      if($Tuple_score['login_joueur']==$_SESSION['login_entre'])
      {
-       ?>
-       <div class="bloc_quiz" id="quiz<?php echo $cpt ?>">
-        <?php
         while($Tuple_quiz=$data_quiz->fetch()){ //On cherche le nom du quiz associé au numéro du quiz
           if($Tuple_quiz['no_quiz']==$Tuple_score['no_quiz']){
             echo '<h3>'.$Tuple_quiz['nom'].'</h3>';
           }
         } ?>
-
+      <div class="bloc_quiz" id="quiz<?php echo $cpt ?>">
        <table class="table">
         <thead>
           <tr>

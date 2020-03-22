@@ -30,8 +30,6 @@
       $numero_quiz = $Tuple['no_quiz'];
       $nb_question = $Tuple['nb_question'];
     }
-    $requete = $bdd->prepare("INSERT INTO SCORE(no_quiz) VALUES (:no_quiz)");
-    $requete->bindValue('no_quiz',$numero_quiz,PDO::PARAM_INT);
     ?>
 
     <h2><?php echo $nom_quiz ?></h2>
@@ -84,6 +82,7 @@
     ?>
     <input type="submit" name="bouton_executer" value="Valider mon quiz" id="bouton_executer">
     <input name="nb_questions" type="hidden" value="<?php echo $nb_question ?>">
+    <input name="no_quiz" type="hidden" value="<?php echo $numero_quiz ?>">
     <input name="start" type="hidden" value="<?php echo $start ?>">
     </form>
     </div>

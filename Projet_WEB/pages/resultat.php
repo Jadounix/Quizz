@@ -60,7 +60,9 @@
           <p>Dommage ! Votre score n'est que de : <?php echo $cpt_bonne_rep ?>... Ne perdez pas espoir, vous pouvez rejouer !</p>
           <?php
         }
-        echo 'Vous avez réalisé ce quiz en '.($chrono/60).'minute(s) et '.($chrono%60).'secondes'; //problème d'arrondi de la division à revoir
+        $min = (int) ($chrono/60);
+        $sec = $chrono%60;
+        echo 'Vous avez réalisé ce quiz en '.$min.' minute(s) et '.$sec.' seconde(s)';
          ?>
       </div>
 
@@ -71,11 +73,11 @@
 
     <!-- Enregistrement du score dans la base de données -->
     <?php
-    $requete = $bdd->prepare("INSERT INTO SCORE(nb_points,temps,login_joueur) VALUES (:nb_points,:temps,:login_joueur)");
+    $requete = $bdd->prepare("INSERT INTO SCORE(nb_points,temps,login_joueur, no_quiz) VALUES (:nb_points,:temps,:login_joueur,:no_quiz)");
     $requete->bindValue('nb_points',$cpt_bonne_rep,PDO::PARAM_INT);
-    $requete->bindValue('temps',0,PDO::PARAM_INT);
+    $requete->bindValue('temps',$chrono,PDO::PARAM_INT); //On enregistre le temps en secondes
     $requete->bindValue('login_joueur',$_SESSION['login_entre'],PDO::PARAM_STR);
-
+    $requete->bindValue('no_quiz',$_POST['no_quiz'],PDO::PARAM_INT);
 
     $requete->execute();
      ?>
