@@ -46,21 +46,30 @@
     $requete_quest->bindValue('no_quiz',$no_new_quiz+1,PDO::PARAM_INT);
     $requete_quest->execute();
 
-    //Ajout des réponses correspondantes à chaque question
-    $requete_rep1 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
-    $requete_rep1->bindValue('lib_rep',$_POST['lib_rep1_entre'.$i],PDO::PARAM_STR);
-    $requete_rep1->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);
-    $requete_rep1->execute();
+    //Ajout des réponses correspondantes à chaque question, si elles ont été entrées.
+    if(!empty($_POST['lib_rep1_entre'.$i]))
+    {
+      $requete_rep1 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
+      $requete_rep1->bindValue('lib_rep',$_POST['lib_rep1_entre'.$i],PDO::PARAM_STR);
+      $requete_rep1->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);
+      $requete_rep1->execute();
+    }
 
-    $requete_rep2 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
-    $requete_rep2->bindValue('lib_rep',$_POST['lib_rep2_entre'.$i],PDO::PARAM_STR);
-    $requete_rep2->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);
-    $requete_rep2->execute();
+    if(!empty($_POST['lib_rep2_entre'.$i]))
+    {
+      $requete_rep2 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
+      $requete_rep2->bindValue('lib_rep',$_POST['lib_rep2_entre'.$i],PDO::PARAM_STR);
+      $requete_rep2->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);
+      $requete_rep2->execute();
+    }
 
-    $requete_rep3 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
-    $requete_rep3->bindValue('lib_rep',$_POST['lib_rep3_entre'.$i],PDO::PARAM_STR);
-    $requete_rep3->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);
-    $requete_rep3->execute();
+    if(!empty($_POST['lib_rep3_entre'.$i]))
+    {
+      $requete_rep3 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
+      $requete_rep3->bindValue('lib_rep',$_POST['lib_rep3_entre'.$i],PDO::PARAM_STR);
+      $requete_rep3->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);
+      $requete_rep3->execute();
+    }
   }
 
   echo 'Votre questionnaire a bien été créé !';

@@ -34,7 +34,6 @@
 
    $cpt=1;
 
-
    while($Tuple_score=$data_score->fetch())
    {
      if($Tuple_score['login_joueur']==$_SESSION['login_entre'])
