@@ -22,8 +22,7 @@
 
    <h4> Créer un quiz </h4>
    <?php
-   //$nb_questions_entre = $_POST['nb_questions_entre'];
-   $nb_questions_entre = 1;
+   $nb_questions_entre = $_POST['nb_questions_entre'];
 
    ?><form class="bloc" action="creation_question.php" method="POST">
 
