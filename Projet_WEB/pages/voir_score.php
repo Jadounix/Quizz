@@ -40,7 +40,7 @@
    {
       while($Tuple_quiz=$data_quiz->fetch()){ //On cherche le nom du quiz associé au numéro du quiz
         if($Tuple_quiz['no_quiz']==$Tuple_score['no_quiz']){
-          echo '<h3>'.$Tuple_quiz['nom'].'</h3>';
+          echo '<h3>'.$Tuple_quiz['nom'].'</h3>'; //PB tous les noms de s'affichent pas :'(
         }
       } ?>
 

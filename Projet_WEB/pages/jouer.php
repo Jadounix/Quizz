@@ -69,8 +69,8 @@
           $req_rep = 'SELECT * FROM REPONSE';
           $data_rep = $bdd->query($req_rep);
           $cpt=0;
-          $br=false;
-          while ($TupleR=$data_rep->fetch() and $cpt!=2 and $br==false)
+          $br=false; //Devient vrai si la bonne réponse a été affichée
+          while ($TupleR=$data_rep->fetch() and $cpt<2)
           {
             if($TupleQ['no_question']==$TupleR['no_question'] and $TupleQ['bonne_rep']==$TupleR['lib_rep']) //On cherche si la reponse est bien associée à la question
             {
@@ -78,17 +78,21 @@
                <br>
                <input type="radio" checked name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
+               Bonne rep <!--pour les tests-->
               <?php
               $cpt++;
-              $br=true;
             }
             else if($TupleQ['no_question']==$TupleR['no_question'] and $TupleQ['bonne_rep']!=$TupleR['lib_rep']){
+              if($cpt==0){
               ?>
                <br>
                <input type="radio" checked name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
+               Mauvaise rep
               <?php
-              $cpt++;
+
+                $cpt++;
+              }
             }
           }
         }
