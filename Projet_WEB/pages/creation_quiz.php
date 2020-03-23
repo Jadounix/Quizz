@@ -55,14 +55,14 @@
       <thead>
         <tr>
           <th scope="col">Quelle est l'intitulé de la question ?</th>
-          <th scope="col">Quelles sont les réponses à proposer ?</th>
-          <th scope="col">Quelle est la bonne réponse ?</th>
+          <th scope="col">Quelles sont les réponses à proposer ? (Dans le cas d'une question à choix multiples)</th>
+          <th scope="col">Quelle est la bonne réponse ? Attention, elle doit faire partie des réponses dans le cas d'une question à choix multiples.</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><input type="text" name="lib_entre<?php echo $i ?>" placeholder="Intitulé de la question" required></td>
-          <td><input type="text" name="lib_rep1_entre<?php echo $i ?>" placeholder="Réponse 1" required></td>
+          <td><input type="text" name="lib_rep1_entre<?php echo $i ?>" placeholder="Réponse 1" ></td>
           <td><input type="text" name="bonne_rep_entre<?php echo $i ?>" placeholder="Bonne réponse" required></td>
         </tr>
         <tr>

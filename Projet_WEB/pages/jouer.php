@@ -46,9 +46,11 @@
     //Interrogation de la base de données des questions
     $req_questions = 'SELECT * FROM QUESTION';
     $data_questions = $bdd->query($req_questions);
+
     for($i=1;$i<=$nb_question;$i++)
     {
       $Tuple=$data_questions->fetch();
+      echo '<div id = "question_numero_'.$i.'">';
       if($Tuple['no_quiz']==$numero_quiz)
       {
         //Libellé de la question
@@ -56,7 +58,7 @@
         //Si question ouverte
         if($Tuple['type']=='ouverte')
         {
-          echo '<textarea id="reponse" name="reponse'.$Tuple['no_question'].'" class="form-control" required></textarea>';
+          echo '<textarea id="reponse" name="reponse'.$Tuple['no_question'].'" class="form-control"></textarea>';
         }
         //Si question à choix multiple
         elseif ($Tuple['type']=='CM')
@@ -70,7 +72,7 @@
             {
               ?>
                <br>
-               <input type="radio" name ="reponse<?php echo $Tuple['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
+               <input type="radio" checked name ="reponse<?php echo $Tuple['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
             }
@@ -78,10 +80,12 @@
         }
         echo '<br><br>';
       }
+      echo '</div>';
     }
     ?>
-    <input type="submit" name="bouton_executer" value="Valider mon quiz" id="bouton_executer">
-    <input name="nb_questions" type="hidden" value="<?php echo $nb_question ?>">
+    <input type="button" name="bouton_suivant" value="Question suivante" id="bouton_suivant" onclick="suivant()">
+    <input type="hidden" name="bouton_executer" value="Valider mon quiz" id="bouton_executer">
+    <input name="nb_questions" id="nb_questions" type="hidden" value="<?php echo $nb_question ?>">
     <input name="no_quiz" type="hidden" value="<?php echo $numero_quiz ?>">
     <input name="start" type="hidden" value="<?php echo $start ?>">
     </form>
@@ -89,6 +93,56 @@
 
   <?php include '../includes/footer.php'; ?>
   <?php include '../lib/bootstrap_footer.php'; ?>
+
+  <script type="text/javascript">
+
+    var nbQuestions = parseInt(document.getElementById("nb_questions").value);
+    var numQuestion = 1;
+
+    afficherQuestion(numQuestion);
+    //Fonction pour cacher un element (ici une question du quiz)
+    function hide(num)
+    {
+      var id = "question_numero_"+num;
+      var elem = document.getElementById(id);
+      elem.style.display = "none";
+    }
+
+    //Fonction pour afficher un element (ici une question du quiz)
+    function show(num)
+    {
+      var id = "question_numero_"+num;
+      var elem = document.getElementById(id);
+      elem.style.display = "block";
+    }
+
+    function afficherQuestion(num)
+    {
+      for(var i=1;i<=nbQuestions;i++)
+      {
+        hide(i);
+      }
+      show(num);
+    }
+
+    function suivant()
+    {
+      numQuestion++;
+      afficherQuestion(numQuestion);
+
+      if(numQuestion >= nbQuestions)
+      {
+        //On cache le bouton question suivante
+        var boutonSuivant = document.getElementById("bouton_suivant");
+        boutonSuivant.style.display = "none";
+
+        //On affiche le bouton envoyer en changeant son type
+        var boutonExecuter = document.getElementById("bouton_executer");
+        boutonExecuter.type = "submit";
+      }
+    }
+
+  </script>
 
 </body>
 

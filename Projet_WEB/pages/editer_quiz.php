@@ -12,7 +12,7 @@
   <meta name="description">
 
   <?php include '../lib/bootstrap_header.php'; ?>
-  <?php include '../includes/menu_deconnexion.php'; ?>
+  <?php include '../includes/menu_deconnexion_ad.php'; ?>
 
 </head>
 
@@ -40,8 +40,9 @@
 
       <!-- Interrogation de la base de données des questions -->
       <?php
-      $req_questions = 'SELECT * FROM QUESTION';
+      $req_questions = 'SELECT * FROM QUESTION ';
       $data_questions = $bdd->query($req_questions);
+
       for($i=1;$i<=$nb_question;$i++)
       {
         $Tuple=$data_questions->fetch();
@@ -75,6 +76,7 @@
             //Parcours de la base de données des réponses
             $req_rep = 'SELECT * FROM REPONSE';
             $data_rep = $bdd->query($req_rep);
+            $num_sous_rep = 1; //Comteur qui va de 1 à 3 (ou 4) en fonction du numero de la réponse de la question CM
             while ($TupleR=$data_rep->fetch())
             {
               if($Tuple['no_question']==$TupleR['no_question']) //On cherche si la reponse est bien associée à la question
@@ -83,11 +85,13 @@
                 <!-- Label pour le libellé de la réponse à modifier et textarea pour modifier cette réponse -->
                  <br>
                  <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
-                 <input name="lib_reponse_cm" type="hidden" value="<?php echo $TupleR['lib_rep'] ?>"> <!--Garde en mémoire le libellé de la réponse-->
+                 <input name="lib_reponse_cm<?php echo $TupleR['no_question'].'_'.$num_sous_rep ?>" type="hidden" value="<?php echo $TupleR['lib_rep'] ?>"> <!--Garde en mémoire le libellé de la réponse-->
                  <br>
-                 <textarea id="reponse" name="new_reponse_cm<?php echo $TupleR['no_question'] ?>" placeholder="Modifier la réponse ici" ></textarea>
+                 <textarea id="reponse" name="new_reponse_cm<?php echo $TupleR['no_question'].'_'.$num_sous_rep ?>" placeholder="Modifier la réponse ici" ></textarea>
+                 <input name="id_rep<?php echo $TupleR['no_question'].'_'.$num_sous_rep ?>" type="hidden" value="<?php echo $TupleR['no_rep'] ?>">
                  <br>
                 <?php
+                $num_sous_rep++;
               }
             }
             ?>
@@ -95,7 +99,8 @@
             <br>
             <label>Quelle sera la bonne réponse à cette question ?</label>
             <br>
-            <select name="bonne_reponse_cm<?php echo $TupleR['no_question'] ?>">
+            <select name="bonne_reponse_cm<?php echo $i ?>">
+                <option value='0'>Inchangé</option>
                 <?php
                 for($k=1;$k<=3;$k++)
                 {

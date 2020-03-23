@@ -34,7 +34,6 @@
 
    $cpt=1;
 
-
    while($Tuple_score=$data_score->fetch())
    {
      if($Tuple_score['login_joueur']==$_SESSION['login_entre'])
@@ -49,7 +48,7 @@
        <table class="table">
         <thead>
           <tr>
-            <th scope="col">Temps réalisé</th>
+            <th scope="col">Temps réalisé (en secondes)</th>
             <th scope="col">Score réalisé</th>
           </tr>
         </thead>
