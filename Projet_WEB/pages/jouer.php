@@ -38,10 +38,12 @@
     <!-- Début du quiz sous la forme d'un formulaire -->
     <div class="bloc_quiz"><form action="resultat.php" method="POST">
 
-
     <?php
     // Mise en route du chronomètre
     $start = microtime(true);
+
+    //Récupération du niveau de difficulté
+    $niveau=$_POST['niveau'];
 
     //Interrogation de la base de données des questions
     $req_questions = 'SELECT * FROM QUESTION';
@@ -49,30 +51,59 @@
 
     for($i=1;$i<=$nb_question;$i++)
     {
-      $Tuple=$data_questions->fetch();
+      $TupleQ=$data_questions->fetch();
       echo '<div id = "question_numero_'.$i.'">';
-      if($Tuple['no_quiz']==$numero_quiz)
+      if($TupleQ['no_quiz']==$numero_quiz)
       {
         //Libellé de la question
-        echo '<br/><strong><div class="libelle_question">'.$Tuple['lib_question'].'</div></strong>';
+        echo '<br/><strong><div class="libelle_question">'.$TupleQ['lib_question'].'</div></strong>';
         //Si question ouverte
-        if($Tuple['type']=='ouverte')
+        if($TupleQ['type']=='ouverte')
         {
-          echo '<textarea id="reponse" name="reponse'.$Tuple['no_question'].'" class="form-control"></textarea>';
+          echo '<textarea id="reponse" name="reponse'.$TupleQ['no_question'].'" class="form-control"></textarea>';
         }
         //Si question à choix multiple
-        elseif ($Tuple['type']=='CM')
+        elseif ($TupleQ['type']=='CM' and $niveau=="facile")
+        {
+          //Parcours de la base de données des réponses
+          $req_rep = 'SELECT * FROM REPONSE';
+          $data_rep = $bdd->query($req_rep);
+          $cpt=0;
+          $br=false;
+          while ($TupleR=$data_rep->fetch() and $cpt!=2 and $br==false)
+          {
+            if($TupleQ['no_question']==$TupleR['no_question'] and $TupleQ['bonne_rep']==$TupleR['lib_rep']) //On cherche si la reponse est bien associée à la question
+            {
+              ?>
+               <br>
+               <input type="radio" checked name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
+               <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
+              <?php
+              $cpt++;
+              $br=true;
+            }
+            else if($TupleQ['no_question']==$TupleR['no_question'] and $TupleQ['bonne_rep']!=$TupleR['lib_rep']){
+              ?>
+               <br>
+               <input type="radio" checked name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
+               <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
+              <?php
+              $cpt++;
+            }
+          }
+        }
+        elseif ($TupleQ['type']=='CM' and $niveau=="difficile")
         {
           //Parcours de la base de données des réponses
           $req_rep = 'SELECT * FROM REPONSE';
           $data_rep = $bdd->query($req_rep);
           while ($TupleR=$data_rep->fetch())
           {
-            if($Tuple['no_question']==$TupleR['no_question']) //On cherche si la reponse est bien associée à la question
+            if($TupleQ['no_question']==$TupleR['no_question']) //On cherche si la reponse est bien associée à la question
             {
               ?>
                <br>
-               <input type="radio" checked name ="reponse<?php echo $Tuple['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
+               <input type="radio" checked name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
             }

@@ -34,7 +34,7 @@
       <h4><?php echo $Tuple['nom']?></h4> <!-- On affiche le nom du quiz -->
       <div class="bloc_bouton"> <!-- On afficher le bouton pour commenecer le quiz -->
       <br/><br/>
-      <a href="jouer.php?id=<?php echo $cpt ?>"> <input class="bouton1" type="button" value="Jouer"></a>
+      <a href="choix_niveau.php?id=<?php echo $cpt ?>"> <input class="bouton1" type="button" value="Jouer"></a>
       </div></div></div><br/>
       <?php
       $cpt++;
@@ -42,6 +42,7 @@
      ?>
     </div>
     <br/><br/>
+    
   <?php include '../includes/footer.php'; ?>
   <?php include '../lib/bootstrap_footer.php'; ?>
 

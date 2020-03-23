@@ -48,13 +48,13 @@
        <table class="table">
         <thead>
           <tr>
-            <th scope="col">Temps réalisé (en secondes)</th>
+            <th scope="col">Temps réalisé</th>
             <th scope="col">Score réalisé</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><?php echo $Tuple_score['temps'] ?></td>
+            <td><?php echo (int) ($Tuple_score['temps']/60)."min ".($Tuple_score['temps']%60)."s"?></td>
             <td><?php echo $Tuple_score['nb_points'] ?></td>
           </tr>
         </tbody>
