@@ -29,7 +29,8 @@
           <label for="nb_questions" class="h5">Combien de questions comportera votre quiz ?</label>
           <select name="nb_questions_entre">
               <?php
-              for($i=1;$i<=50;$i++){
+              for($i=2;$i<=20;$i++)
+              {
                 echo "<option value='".$i."'>".$i."</option>";
               } ?>
           </select>
