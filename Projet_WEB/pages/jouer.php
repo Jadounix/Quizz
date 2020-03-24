@@ -130,7 +130,7 @@
   <?php include '../includes/footer.php'; ?>
   <?php include '../lib/bootstrap_footer.php'; ?>
 
-  <script type="text/javascript" src="../includes/script.js"> </script>
+  <script type="text/javascript" src="../includes/script_jouer.js"> </script>
 
 </body>
 
