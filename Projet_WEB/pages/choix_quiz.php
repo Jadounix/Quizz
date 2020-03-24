@@ -7,8 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Quiz</title>
+  <title>Jouer au quiz</title>
   <meta name="description">
 
   <?php include '../lib/bootstrap_header.php'; ?>
@@ -34,7 +33,7 @@
       <h4><?php echo $Tuple['nom']?></h4> <!-- On affiche le nom du quiz -->
       <div class="bloc_bouton"> <!-- On affiche le bouton pour commencer le quiz -->
       <br/><br/>
-      <a href="choix_niveau.php?id=<?php echo $cpt ?>"> <input class="bouton1" type="button" value="Jouer"></a>
+      <a href="choix_niveau.php?id=<?php echo $cpt ?>"> <input class="bouton2" type="button" value="Jouer"></a>
       </div></div></div><br/>
       <?php
       $cpt++;

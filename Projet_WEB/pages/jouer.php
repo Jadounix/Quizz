@@ -7,7 +7,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style_jouer.css">
   <title>Quiz</title>
   <meta name="description">
 
@@ -36,7 +35,7 @@
     <hr/>
 
     <!-- Début du quiz sous la forme d'un formulaire -->
-    <div class="bloc_quiz"><form action="resultat.php" method="POST">
+    <div class="bloc2"><form action="resultat.php" method="POST">
 
     <?php
     // Mise en route du chronomètre

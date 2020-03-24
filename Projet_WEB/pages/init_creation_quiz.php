@@ -7,7 +7,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style_creation_quiz.css">
   <title>Créer un quiz</title>
   <meta name="description">
 
@@ -24,7 +23,7 @@
 
    <h2> Créer un quiz </h2>
     <br/>
-    <form class="bloc" action="creation_quiz.php" method="POST">
+    <form class="bloc2" action="creation_quiz.php" method="POST">
         <div class="form-group col-sm-6">
           <label for="nb_questions" class="h5">Combien de questions comportera votre quiz ?</label>
           <select name="nb_questions_entre">
@@ -35,7 +34,7 @@
               } ?>
           </select>
         </div>
-        <button type="submit" name="connexion"  class="bouton">Valider</button>
+        <button type="submit" name="connexion"  class="bouton2">Valider</button>
     </form>
    <?php
  }?>

@@ -7,7 +7,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style_creation_quiz.css">
   <title>Créer un quiz</title>
   <meta name="description">
 
@@ -24,7 +23,7 @@
    <?php
    $nb_questions_entre = $_POST['nb_questions_entre'];
 
-   ?><form class="bloc" action="creation_question.php" method="POST">
+   ?><form class="bloc2" action="creation_question.php" method="POST">
 
    <div class="form-group col-sm-6">
      <label for="Type">Quel est le nom de ce quiz ?</label>

@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>Inscription</title>
     <?php include '../lib/bootstrap_header.php'; ?>
-    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
     <?php include '../includes/menu_connexion.php'; ?>
@@ -32,7 +31,7 @@
         </div>
 
       <div class="bloc_bouton">
-      <button type="submit" name="connexion"  class="bouton">Valider</button>
+      <button type="submit" name="connexion"  class="bouton1">Valider</button>
       </div>
   </form>
 

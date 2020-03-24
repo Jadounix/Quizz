@@ -7,7 +7,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--<link rel="stylesheet" href="../css/style_voir_quiz.css"> en commentaire le temps de tester-->
   <title>Voir mes quiz</title>
   <meta name="description">
 
@@ -46,7 +45,7 @@
         }
       } ?>
 
-      <div class="bloc_quiz" id="quiz<?php echo $cpt ?>">
+      <div class="" id="quiz<?php echo $cpt ?>">
        <table class="table">
         <thead>
           <tr>

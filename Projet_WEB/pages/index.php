@@ -7,7 +7,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style.css">
   <title>Quiz</title>
   <meta name="description">
 
@@ -26,8 +25,8 @@
        <br/>
        <p class="bloc">blabla de présentation</p>
        <div class="bloc_bouton">
-       <a href="login.php"> <input class="bouton" type="button" value="Se connecter"> </a>
-       <a href="inscription.php"> <input class="bouton" type="button" value="S'inscrire"> </a>
+       <a href="login.php"> <input class="bouton1" type="button" value="Se connecter"> </a>
+       <a href="inscription.php"> <input class="bouton1" type="button" value="S'inscrire"> </a>
        </div>
       <?php
     }
@@ -41,7 +40,7 @@
        <p class="bloc">blabla de présentation version joueur</p>
 
        <div class="bloc_bouton">
-         <a href="choix_quiz.php"> <input class="bouton" type="button" value="Jouer !"> </a>
+         <a href="choix_quiz.php"> <input class="bouton1" type="button" value="Jouer !"> </a>
        </div>
         <?php
     }
@@ -55,8 +54,8 @@
        <p class="bloc">blabla de présentation version admin</p>
 
        <div class="bloc_bouton">
-         <a href="init_creation_quiz.php"> <input class="bouton" type="button" value="Créer un quiz"> </a>
-         <a href="voir_quiz.php"> <input class="bouton" type="button" value="Voir mes quiz"> </a>
+         <a href="init_creation_quiz.php"> <input class="bouton1" type="button" value="Créer un quiz"> </a>
+         <a href="voir_quiz.php"> <input class="bouton1" type="button" value="Voir mes quiz"> </a>
        </div>
         <?php
     }
