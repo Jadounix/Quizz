@@ -46,10 +46,10 @@
      <div class="form-group col-sm-6">
        <label for="Type">Quel sera le type de la question ?</label>
        <br>
-       <input class="radio" type="radio" name="type_question<?php echo $i ?>" value="ouverte" id="Ouverte" onclick="cacherQuestionCM(<?php echo $i ?>)">
+       <input class="radio" type="radio" name="type_question<?php echo $i ?>" value="ouverte" id="Ouverte<?php echo $i ?>" onclick="cacherQuestionCM(<?php echo $i ?>)">
        <label class="radio" for="ouv">Question ouverte</label>
        <br>
-       <input class="radio" type="radio" checked name="type_question<?php echo $i ?>" value="CM" id="Choix_multiples" onclick="afficherQuestionCM(<?php echo $i ?>)">
+       <input class="radio" type="radio" checked name="type_question<?php echo $i ?>" value="CM" id="Choix_multiples<?php echo $i ?>" onclick="afficherQuestionCM(<?php echo $i ?>)">
        <label class="radio" for="cm">Question à choix multiples</label>
      </div>
 
@@ -63,9 +63,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><input type="text" name="lib_entre<?php echo $i ?>" placeholder="Intitulé de la question" required></td>
-          <td class="questionCM<?php echo $i ?>"><input type="text" name="lib_rep1_entre<?php echo $i ?>" placeholder="Réponse 1" ></td>
-          <td><input type="text" name="bonne_rep_entre<?php echo $i ?>" placeholder="Bonne réponse" required></td>
+          <td><input type="text" id="lib_entre<?php echo $i ?>" name="lib_entre<?php echo $i ?>" placeholder="Intitulé de la question" required></td>
+          <td class="questionCM<?php echo $i ?>"><input type="text" id="lib_rep1_entre<?php echo $i ?>" name="lib_rep1_entre<?php echo $i ?>" placeholder="Réponse 1" required></td>
+          <td><input type="text" id="bonne_rep_entre<?php echo $i ?>" name="bonne_rep_entre<?php echo $i ?>" placeholder="Bonne réponse" required></td>
         </tr>
         <tr>
           <td></td>
@@ -86,7 +86,7 @@
     ?>
     <!-- Permet de garder en mémoire le nombre de questions pour l'envoyer dans le formulaire d'après -->
     <input name="nb_questions_entre" id="nb_questions" type="hidden" value="<?php echo $nb_questions_entre ?>">
-    <input type="button" name="bouton_suivant" value="Question suivante" id="bouton_suivant" onclick="suivant()">
+    <input type="button" name="bouton_suivant" value="Question suivante" id="bouton_suivant" onclick="testSuivant()">
     <input type="hidden" name="bouton_executer" value="Enregistrer" id="bouton_executer">
    </form>
    <?php
@@ -96,12 +96,12 @@
   <?php include '../lib/bootstrap_footer.php'; ?>
 
   <!-- Script JavaScript qui permet de faire ne montrer qu'une question à la fois -->
-  <script type="text/javascript" src="../includes/script.js"> </script>
+  <script type="text/javascript" src="../includes/script_edition.js"> </script>
 
   <!-- Script JavaScript qui permet d'alterner l'affichage entre question ouverte et question fermée -->
   <script type="text/javascript">
 
-  function hide(num)
+  function hideReponse(num)
   {
     var nomClass = "questionCM"+num;
     var tab = document.getElementsByClassName(nomClass);
@@ -109,9 +109,10 @@
     {
       tab[i].style.display = "none";
     }
+    document.getElementById("lib_rep1_entre"+num).required = false;
   }
 
-  function show(num)
+  function showReponse(num)
   {
     var nomClass = "questionCM"+num;
     var tab = document.getElementsByClassName(nomClass);
@@ -119,19 +120,19 @@
     {
       tab[i].style.display = "block";
     }
+    //On est obligé de remplir au moins une réponse
+    document.getElementById("lib_rep1_entre"+num).required = true;
   }
 
   function cacherQuestionCM(num)
   {
-    hide(num);
+    hideReponse(num);
   }
 
   function afficherQuestionCM(num)
   {
-    show(num);
+    showReponse(num);
   }
-
-
   </script>
 
 </body>
