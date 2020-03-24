@@ -68,9 +68,10 @@
           //Parcours de la base de données des réponses
           $req_rep = 'SELECT * FROM REPONSE';
           $data_rep = $bdd->query($req_rep);
-          $cpt=0;
-          $br=false; //Devient vrai si la bonne réponse a été affichée
-          while ($TupleR=$data_rep->fetch() and $cpt<2)
+          $cpt=0; //Compteur du nombre de réponses affichées
+          $br=0; //Compteur du nombre de bonne réponse affichée
+          $mr=0; //Compteur du nombre de mauvaise réponse affichée
+          while ($TupleR=$data_rep->fetch() and $cpt<2) //Dans le niveau facile, on ne veut afficher que 2 réponses possibles
           {
             if($TupleQ['no_question']==$TupleR['no_question'] and $TupleQ['bonne_rep']==$TupleR['lib_rep']) //On cherche si la reponse est bien associée à la question
             {
@@ -78,22 +79,22 @@
                <br>
                <input type="radio" checked name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
-               Bonne rep <!--pour les tests-->
               <?php
-              $cpt++;
+              $br++;
             }
-            else if($TupleQ['no_question']==$TupleR['no_question'] and $TupleQ['bonne_rep']!=$TupleR['lib_rep']){
-              if($cpt==0){
+            else if($TupleQ['no_question']==$TupleR['no_question'] and $TupleQ['bonne_rep']!=$TupleR['lib_rep'])
+            {
+              if($mr==0) // Si aucune mauvaise réponse n'a encore été affichée
+              {
               ?>
                <br>
                <input type="radio" checked name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
-               Mauvaise rep
               <?php
-
-                $cpt++;
+                $mr++;
               }
             }
+            $cpt=$br+$mr;
           }
         }
         elseif ($TupleQ['type']=='CM' and $niveau=="difficile")
