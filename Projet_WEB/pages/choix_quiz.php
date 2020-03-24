@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style_voir_quiz.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>Quiz</title>
   <meta name="description">
 
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <h2>Choix du quiz</h2>
+    <h1>Choix du quiz</h1>
     <br/>
     <div class="row"> <!--Pour avoir un affichage des quiz en ligne-->
 
@@ -32,7 +32,7 @@
      ?>
       <div class="col-sm-4"><div class="bloc_quiz" id="quiz<?php echo $cpt ?>"> <!-- On donne au quiz un id quizn avec n allant de 1 au nombre de quiz -->
       <h4><?php echo $Tuple['nom']?></h4> <!-- On affiche le nom du quiz -->
-      <div class="bloc_bouton"> <!-- On afficher le bouton pour commenecer le quiz -->
+      <div class="bloc_bouton"> <!-- On affiche le bouton pour commencer le quiz -->
       <br/><br/>
       <a href="choix_niveau.php?id=<?php echo $cpt ?>"> <input class="bouton1" type="button" value="Jouer"></a>
       </div></div></div><br/>
@@ -42,7 +42,7 @@
      ?>
     </div>
     <br/><br/>
-    
+
   <?php include '../includes/footer.php'; ?>
   <?php include '../lib/bootstrap_footer.php'; ?>
 

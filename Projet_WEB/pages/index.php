@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/style_index.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>Quiz</title>
   <meta name="description">
 
@@ -24,7 +24,7 @@
 
        <h1>Bienvenue sur QuizCeption !</h1>
        <br/>
-       <p class="presentation">blabla de présentation</p>
+       <p class="bloc">blabla de présentation</p>
        <div class="bloc_bouton">
        <a href="login.php"> <input class="bouton" type="button" value="Se connecter"> </a>
        <a href="inscription.php"> <input class="bouton" type="button" value="S'inscrire"> </a>
@@ -38,7 +38,7 @@
        include '../includes/menu_deconnexion.php'; ?>
        <h1>Bienvenue sur QuizCeption !</h1>
        <br/>
-       <p class="presentation">blabla de présentation version joueur</p>
+       <p class="bloc">blabla de présentation version joueur</p>
 
        <div class="bloc_bouton">
          <a href="choix_quiz.php"> <input class="bouton" type="button" value="Jouer !"> </a>
@@ -52,7 +52,7 @@
        include '../includes/menu_deconnexion_ad.php'; ?>
        <h1>Bienvenue sur QuizCeption !</h1>
        <br/>
-       <p class="presentation">blabla de présentation version admin</p>
+       <p class="bloc">blabla de présentation version admin</p>
 
        <div class="bloc_bouton">
          <a href="init_creation_quiz.php"> <input class="bouton" type="button" value="Créer un quiz"> </a>

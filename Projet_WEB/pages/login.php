@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Connexion</title>
     <?php include '../lib/bootstrap_header.php'; ?>
-    <link rel="stylesheet" href="../css/style_inscription.css">
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
     <?php include '../includes/menu_connexion.php'; ?>
@@ -22,8 +22,9 @@
           <input type="password" class="form-control" name="pass_entre" placeholder="Votre mot de passe" required>
         </div>
       </div>
-      <button type="submit" name="connexion"  class="bouton">Valider</button>
-      <br>
+      <div class="bloc_bouton">
+      <button type="submit" name="connexion" class="bouton">Valider</button>
+      </div>
   </form>
   <?php include '../includes/footer.php'; ?>
   <?php include '../lib/bootstrap_footer.php'; ?>
