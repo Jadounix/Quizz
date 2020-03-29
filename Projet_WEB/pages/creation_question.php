@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Créer un quiz</title>
     <?php include '../lib/bootstrap_header.php'; ?>
   </head>
   <body>
