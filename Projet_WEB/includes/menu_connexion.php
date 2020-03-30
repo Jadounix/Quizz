@@ -14,6 +14,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
+            <a class="nav-link" id="tuto" href="tutoriel.php">Tutoriel</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" id="s_inscrire" href="inscription.php">S'inscrire</a>
           </li>
           <li class="nav-item">

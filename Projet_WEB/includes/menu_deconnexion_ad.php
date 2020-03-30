@@ -14,7 +14,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" id=="creer" href="init_creation_quiz.php">Créer un quiz</a>
+            <a class="nav-link" id="tuto" href="tutoriel.php">Tutoriel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="creer" href="init_creation_quiz.php">Créer un quiz</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="voir_quiz" href="voir_quiz.php">Voir mes quiz</a>

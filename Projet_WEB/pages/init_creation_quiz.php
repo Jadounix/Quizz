@@ -15,11 +15,7 @@
 </head>
 
 <body>
-  <?php
-  //On est dans l'état "connecté" en tant qu'admin
-  if (empty($_POST['login_entre']) and empty($_POST['pass_entre']) and !empty($_SESSION['login_entre']))
-  {
-   include '../includes/menu_deconnexion_ad.php'; ?>
+  <?php include '../includes/menu_deconnexion_ad.php'; ?>
 
    <h2> Créer un quiz </h2>
     <br/>
@@ -36,8 +32,6 @@
         </div>
         <button type="submit" name="connexion"  class="bouton2">Valider</button>
     </form>
-   <?php
- }?>
 
   <?php include '../includes/footer.php'; ?>
   <?php include '../lib/bootstrap_footer.php'; ?>
