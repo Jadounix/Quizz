@@ -9,7 +9,7 @@
   <body>
     <?php include '../includes/menu_connexion.php'; ?>
 
-    <h1>S'inscrire à QuizLand !</h1>
+    <h1>S'inscrire sur QuizCeption !</h1>
     <form class="bloc" action="ajout_membre.php" method="POST">
       <div class="row">
         <div class="form-group col-sm-6">
