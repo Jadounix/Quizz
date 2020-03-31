@@ -31,14 +31,15 @@
 
     <h1>Tutoriel du site QuizCeption</h1>
 
-    <p id = "image1">img1</p>
-    <p id = "image2" style="display:none;">img2</p>
-    <p id = "image3" style="display:none;">img3</p>
-    <p id = "image4" style="display:none;">img4</p>
-    <p id = "image5" style="display:none;">img5</p>
+    <p class="image_tuto" id = "image1">img1</p>
+    <p class="image_tuto" id = "image2" style="display:none;">img2</p>
+    <p class="image_tuto" id = "image3" style="display:none;">img3</p>
+    <p class="image_tuto" id = "image4" style="display:none;">img4</p>
+    <p class="image_tuto" id = "image5" style="display:none;">img5</p>
 
-    <input type="button" name="bouton_suivant" value="Suivant" id="bouton_suivant" onclick="suivant()">
-
+    <div class="bloc_bouton">
+      <input type="button" class="bouton1" value="Suivant" id="bouton_suivant" onclick="suivant()">
+    </div>
 
     <script type="text/javascript">
     var noSlide = 1;

@@ -31,6 +31,8 @@ text-align:center;}
   font-family:Verdana, serif;
   box-shadow: 1px 1px 4px #6a6a6a;}
 
+#bouton_suivant{padding:1%;}
+
 .bloc_bouton{text-align:center;
 padding-top:5%;}
 
@@ -78,3 +80,5 @@ margin-right: auto;}
 
 .image{text-align:center;
 margin:4%;}
+
+.image_tuto{text-align:center;}
