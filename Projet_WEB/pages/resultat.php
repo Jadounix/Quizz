@@ -17,7 +17,6 @@
 
 <body>
     <h2>Score</h2>
-    <br/>
     <div class="bloc_score">
     <?php
     //Arrêt du chronomètre
@@ -40,23 +39,33 @@
       }
     }
     ?>
-      <div class="annonce_score">
+      <div class="bloc_resultat">
         <?php
         if($cpt_bonne_rep>=7)
         {
           ?>
-          <p>Félicitations ! Votre score est de : <?php echo $cpt_bonne_rep ?></p>
+          <p>Félicitations ! Votre score est de : <?php echo $cpt_bonne_rep ?> / <?php echo $_POST['nb_questions'] ?></p>
+          <div class="image">
+            <img src="../images/victoire.png" alt="Victoire !" width="30%"/><br/>
+          </div>
           <?php
         }
         elseif ($cpt_bonne_rep<7 && $cpt_bonne_rep>=5)
         {
           ?>
           <p>Pas mal ! Votre score est de : <?php echo $cpt_bonne_rep ?></p>
+          <div class="image">
+            <img src="../images/pouce_haut.png" alt="Pas mal...réessayez !" height="30%"/><br/>
+          </div>
           <?php
         }
         else {
           ?>
           <p>Dommage ! Votre score n'est que de : <?php echo $cpt_bonne_rep ?>... Ne perdez pas espoir, vous pouvez rejouer !</p>
+          <div class="image">
+            <img src="../images/pouce_bas.png" alt="Défaite...réessayez !" height="85px" width="85px"/>
+          </div>
+          <br/>
           <?php
         }
         $min = (int) ($chrono/60);
@@ -66,7 +75,7 @@
       </div>
 
       <div class="bloc_bouton">
-        <a href="choix_quiz.php"> <input class="bouton" type="button" value="Jouer à un nouveau quiz"> </a>
+        <a href="choix_quiz.php"> <input class="bouton2" type="button" value="Jouer à un nouveau quiz"> </a>
       </div>
     </div>
 
