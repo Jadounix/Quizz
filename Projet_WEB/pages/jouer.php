@@ -76,7 +76,7 @@
             {
               ?>
                <br>
-               <input type="radio" checked name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
+               <input type="radio" name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
               $br++;
@@ -87,7 +87,7 @@
               {
               ?>
                <br>
-               <input type="radio" checked name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
+               <input type="radio" name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
                 $mr++;
@@ -107,7 +107,7 @@
             {
               ?>
                <br>
-               <input type="radio" checked name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
+               <input type="radio" name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
             }

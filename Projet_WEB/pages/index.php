@@ -25,8 +25,8 @@
        <br/>
        <p class="bloc">blabla de présentation</p>
        <div class="bloc_bouton">
-       <a href="login.php"> <input class="bouton1" type="button" value="Se connecter"> </a>
-       <a href="inscription.php"> <input class="bouton1" type="button" value="S'inscrire"> </a>
+         <a href="login.php"> <input class="bouton1" type="button" value="Se connecter"> </a>
+         <a href="inscription.php"> <input class="bouton1" type="button" value="S'inscrire"> </a>
        </div>
       <?php
     }
