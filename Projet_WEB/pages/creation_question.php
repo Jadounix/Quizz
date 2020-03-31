@@ -46,10 +46,17 @@
     $requete_quest->bindValue('no_quiz',$no_new_quiz+1,PDO::PARAM_INT);
     $requete_quest->execute();
 
+    //On récupère le numero de la dernière réponse créée
+    $requete_no_rep = "SELECT MAX(no_rep) as maxR FROM REPONSE";
+    $data_no_rep = $bdd->query($requete_no_rep);
+    $TupleR = $data_no_rep->fetch();
+    $no_new_rep = $TupleR['maxR'];
+
     //Ajout des réponses correspondantes à chaque question, si elles ont été entrées.
     if(!empty($_POST['lib_rep1_entre'.$i]))
     {
-      $requete_rep1 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
+      $requete_rep1 = $bdd->prepare("INSERT INTO REPONSE(no_rep,lib_rep,no_question) VALUES (:no_rep,:lib_rep,:no_question)");
+      $requete_rep1->bindValue('no_rep',$no_new_rep+1,PDO::PARAM_INT);
       $requete_rep1->bindValue('lib_rep',$_POST['lib_rep1_entre'.$i],PDO::PARAM_STR);
       $requete_rep1->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);
       $requete_rep1->execute();
@@ -57,7 +64,8 @@
 
     if(!empty($_POST['lib_rep2_entre'.$i]))
     {
-      $requete_rep2 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
+      $requete_rep2 = $bdd->prepare("INSERT INTO REPONSE(no_rep,lib_rep,no_question) VALUES (:no_rep,:lib_rep,:no_question)");
+      $requete_rep2->bindValue('no_rep',$no_new_rep+2,PDO::PARAM_INT);
       $requete_rep2->bindValue('lib_rep',$_POST['lib_rep2_entre'.$i],PDO::PARAM_STR);
       $requete_rep2->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);
       $requete_rep2->execute();
@@ -65,7 +73,8 @@
 
     if(!empty($_POST['lib_rep3_entre'.$i]))
     {
-      $requete_rep3 = $bdd->prepare("INSERT INTO REPONSE(lib_rep,no_question) VALUES (:lib_rep,:no_question)");
+      $requete_rep3 = $bdd->prepare("INSERT INTO REPONSE(no_rep,lib_rep,no_question) VALUES (:no_rep,:lib_rep,:no_question)");
+      $requete_rep3->bindValue('no_rep',$no_new_rep+3,PDO::PARAM_INT);
       $requete_rep3->bindValue('lib_rep',$_POST['lib_rep3_entre'.$i],PDO::PARAM_STR);
       $requete_rep3->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);
       $requete_rep3->execute();
