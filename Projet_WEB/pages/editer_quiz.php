@@ -42,9 +42,9 @@
       $req_questions = 'SELECT * FROM QUESTION ';
       $data_questions = $bdd->query($req_questions);
 
-      for($i=1;$i<=$nb_question;$i++)
+      $i = 1; //Incrémentateur de la boucle while
+      while($Tuple=$data_questions->fetch())
       {
-        $Tuple=$data_questions->fetch();
         if($Tuple['no_quiz']==$numero_quiz)
         {
           //Libellé de la question
@@ -111,6 +111,7 @@
           }
           echo '<hr>'; //Ligne entre chaque question
         }
+        $i++;
       }
       ?>
       <!-- Envoie du formulaire avec le numero de quiz caché -->

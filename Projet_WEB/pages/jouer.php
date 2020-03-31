@@ -48,12 +48,12 @@
     $req_questions = 'SELECT * FROM QUESTION';
     $data_questions = $bdd->query($req_questions);
 
-    for($i=1;$i<=$nb_question;$i++)
+    $i = 1; //Incrémentateur de la boucle while
+    while($TupleQ=$data_questions->fetch())
     {
-      $TupleQ=$data_questions->fetch();
-      echo '<div id = "question_numero_'.$i.'">';
       if($TupleQ['no_quiz']==$numero_quiz)
       {
+        ?><div id = "question_numero_<?php echo $i ?>"><?php
         //Libellé de la question
         echo '<br/><strong><div class="libelle_question">'.$TupleQ['lib_question'].'</div></strong>';
         //Si question ouverte
@@ -114,8 +114,9 @@
           }
         }
         echo '<br><br>';
+        ?></div><?php
+        $i++;
       }
-      echo '</div>';
     }
     ?>
     <input type="button" name="bouton_suivant" value="Question suivante" id="bouton_suivant" onclick="suivant()">
