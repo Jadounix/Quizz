@@ -1,24 +1,29 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tuto</title>
     <?php include '../lib/bootstrap_header.php'; ?>
   </head>
-  <body>
 
+  <body>
     <?php
-    //Affichage du menu en fonction du statut de l'utilisateur
-    if (isset($_POST['statutJ']))
+    //On affiche le menu en fonction de si l'utilisateur est connecté ou non
+    if(isset($_SESSION['login_entre'])) //On est connecté
     {
-      include '../includes/menu_deconnexion_ad.php';
+      if (isset($_SESSION['etat']) and $_SESSION['etat']==true) //L'utilisateur est un joueur
+      {
+        include '../includes/menu_deconnexion.php';
+      }
+      else
+      {
+        include '../includes/menu_deconnexion_ad.php';
+      }
     }
-    elseif (isset($_POST['statutA']))
-    {
-      include '../includes/menu_deconnexion.php';
-    }
-    else
+    else //L'utilisateur n'est pas connecté
     {
       include '../includes/menu_connexion.php';
     }
@@ -74,7 +79,6 @@
         noSlide = 0;
       }
     }
-
     </script>
 
   <?php include '../includes/footer.php'; ?>
