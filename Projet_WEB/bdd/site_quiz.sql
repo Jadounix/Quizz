@@ -38,7 +38,6 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`login_ad`, `mdp_ad`) VALUES
-('Jade Petit ❤', 0),
 ('youyou', 5678);
 
 -- --------------------------------------------------------
@@ -53,12 +52,11 @@ CREATE TABLE `joueur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `joueur`
+-- Insertion  la table `joueur`
 --
 
 INSERT INTO `joueur` (`login_joueur`, `mdp_joueur`) VALUES
-('toto', 1234),
-('bloup', 1234);
+('toto', 1234);
 
 -- --------------------------------------------------------
 
@@ -75,7 +73,7 @@ CREATE TABLE `question` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `question`
+-- Insertion des questions du premier quiz dans la table `question`
 --
 
 INSERT INTO `question` (`no_question`, `lib_question`, `bonne_rep`, `type`, `no_quiz`) VALUES
@@ -107,7 +105,7 @@ CREATE TABLE `quiz` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `quiz`
+-- Insertion du premier quiz dans la table `quiz`
 --
 
 INSERT INTO `quiz` (`no_quiz`, `nom`, `meilleur_score`, `meilleur_temps`, `temps_max`, `nb_question`, `login_ad`) VALUES
@@ -126,7 +124,7 @@ CREATE TABLE `reponse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `reponse`
+-- Insertion des réponses du premier quiz dans la table `reponse`
 --
 
 INSERT INTO `reponse` (`no_rep`, `lib_rep`, `no_question`) VALUES
@@ -174,50 +172,47 @@ CREATE TABLE `score` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `score`
+-- Insertion d'un score comme exemple dans la table `score`
 --
 
 INSERT INTO `score` (`no_score`, `nb_points`, `temps`, `login_joueur`, `no_quiz`) VALUES
-(1, 7, 0, 'toto', NULL),
-(4, 0, 0, 'toto', NULL);
+(1, 7, 0, 'toto', NULL);
 
 --
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `admin`
+-- Clé primaire de la table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`login_ad`);
 
 --
--- Index pour la table `question`
+-- Clé primaire de la table `joueur`
+--
+ALTER TABLE `joueur`
+  ADD PRIMARY KEY (`login_joueur`);
+
+--
+-- Clé primaire de la table `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`no_question`);
 
 --
--- Index pour la table `quiz`
+-- Clé primaire de la table `quiz`
 --
 ALTER TABLE `quiz`
   ADD PRIMARY KEY (`no_quiz`);
 
 --
--- Index pour la table `reponse`
+-- Clé primaire de la table `reponse`
 --
 ALTER TABLE `reponse`
   ADD PRIMARY KEY (`no_rep`);
 
 --
--- Index pour la table `score`
+-- Clé primaire de la table `score`
 --
 ALTER TABLE `score`
   ADD PRIMARY KEY (`no_score`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
 
 --
 -- AUTO_INCREMENT pour la table `question`
