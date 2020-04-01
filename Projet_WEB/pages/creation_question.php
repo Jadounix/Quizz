@@ -17,26 +17,31 @@
   $requete_no_quiz = "SELECT MAX(no_quiz) as max FROM QUIZ";
   $data_no_quiz = $bdd->query($requete_no_quiz);
   $Tuple=$data_no_quiz->fetch();
+  //Variable contenant le numero du quiz crée en dernier
   $no_new_quiz = $Tuple['max'];
 
+  //Insertion du quiz dans la table quiz
   $requete_quiz = $bdd->prepare("INSERT INTO QUIZ(no_quiz,nom,meilleur_score,meilleur_temps,temps_max,nb_question,login_ad) VALUES (:no_quiz,:nom,:meilleur_score,:meilleur_temps,:temps_max,:nb_question,:login_ad)");
+
+  //On prend le numero du plus grand quiz et on lui ajoute 1 pour faire la clé primaire du nouveau quiz
   $requete_quiz->bindValue('no_quiz',$no_new_quiz+1,PDO::PARAM_INT);
   $requete_quiz->bindValue('nom',$_POST['nom_quiz_entre'],PDO::PARAM_STR);
+  //Pour l'instant pas de meilleur score ou de temps associé
   $requete_quiz->bindValue('meilleur_score',0,PDO::PARAM_INT);
   $requete_quiz->bindValue('meilleur_temps',0,PDO::PARAM_INT);
   $requete_quiz->bindValue('temps_max',$_POST['temps_max_entre'],PDO::PARAM_INT);
   $requete_quiz->bindValue('nb_question',$_POST['nb_questions_entre'],PDO::PARAM_INT);
-  $requete_quiz->bindValue('login_ad',$_SESSION['login_entre'],PDO::PARAM_STR);
+  $requete_quiz->bindValue('login_ad',$_SESSION['login_entre'],PDO::PARAM_STR); //Login de l'admin qui a créé le quiz
   $requete_quiz->execute();
 
-  //On récupère le numero de la dernière question créée
+  //On récupère le numero de la dernière question créée dela même façon que pour la quiz
   $requete_no_quest = "SELECT MAX(no_question) as maxQ FROM QUESTION";
   $data_no_quest = $bdd->query($requete_no_quest);
   $TupleQ = $data_no_quest->fetch();
   $no_new_quest = $TupleQ['maxQ'];
 
   // Ajout des questions à la base de données
-  for($i=1;$i<=$_POST['nb_questions_entre'];$i++)
+  for($i=1;$i<=$_POST['nb_questions_entre'];$i++) //On parcourt toutes les questions entrées par l'utilisateur
   {
     $requete_quest = $bdd->prepare("INSERT INTO QUESTION(no_question,lib_question,bonne_rep,type,no_quiz) VALUES (:no_question,:lib_question,:bonne_rep,:type,:no_quiz)");
     $requete_quest->bindValue('no_question',$no_new_quest+$i,PDO::PARAM_INT);

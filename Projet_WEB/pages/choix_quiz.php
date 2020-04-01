@@ -21,20 +21,25 @@
     <div class="row"> <!--Pour avoir un affichage des quiz en ligne-->
 
     <?php
-    //Interrogation de la base de données
+    //Interrogation de la base de données des quiz
     require("../bdd/connect.php");
     $req = 'SELECT * FROM QUIZ';
     $data = $bdd->query($req);
-    $cpt=1;
+    $cpt = 1;
+    //On parcourt toute les lignes de la bdd des quiz pour afficher tous les quiz
     while ($Tuple=$data->fetch())
     {
      ?>
-      <div class="col-sm-4"><div class="bloc_quiz" id="quiz<?php echo $cpt ?>"> <!-- On donne au quiz un id quizn avec n allant de 1 au nombre de quiz -->
+    <div class="col-sm-4">
+      <div class="bloc_quiz" id="quiz<?php echo $cpt ?>"> <!-- On donne au quiz un id "quizn" avec n allant de 1 au nombre de quiz -->
       <h4><?php echo $Tuple['nom']?></h4> <!-- On affiche le nom du quiz -->
-      <div class="bloc_bouton"> <!-- On affiche le bouton pour commencer le quiz -->
-      <br/><br/>
-      <a href="choix_niveau.php?id=<?php echo $cpt ?>"> <input class="bouton2" type="button" value="Jouer"></a>
-      </div></div></div><br/>
+        <div class="bloc_bouton"> <!-- On affiche le bouton pour commencer le quiz -->
+        <br/><br/>
+        <!-- Le bouton Jouer envoie à la page de choix du niveau du quiz -->
+        <a href="choix_niveau.php?id=<?php echo $cpt ?>"> <input class="bouton2" type="button" value="Jouer"></a> 
+        </div>
+      </div>
+    </div><br/>
       <?php
       $cpt++;
     }

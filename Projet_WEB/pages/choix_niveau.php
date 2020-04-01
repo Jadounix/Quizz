@@ -18,6 +18,9 @@
 <body>
   <h1>Choix du niveau de difficulté</h1>
 
+  <!-- Formulaire pour envoyer le niveau de difficulté choisi lors d'un quiz -->
+
+  <!-- En fonction de la difficulté choisi on revoit un id différent, qui permet de changer le nombre de réponse lors de questions à choix multiples -->
   <form class="bloc2" action="jouer.php?id=<?php echo $_GET['id'] ?>" method="POST">
     <label for="Statut"><strong>Choisissez la difficulté du quiz :</strong></label>
     <br/>
