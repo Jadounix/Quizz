@@ -18,7 +18,7 @@
       {
         include '../includes/menu_deconnexion.php';
       }
-      else
+      else //On est connecté mais pas un joueur, donc on est admin
       {
         include '../includes/menu_deconnexion_ad.php';
       }
@@ -31,20 +31,25 @@
 
     <h1>Tutoriel du site QuizCeption</h1>
 
+    <!-- Images du tuto à faire défiler
+    La première est affcihé, les autres sont cachés pour l'instant -->
     <p class="image_tuto" id = "image1">img1</p>
     <p class="image_tuto" id = "image2" style="display:none;">img2</p>
     <p class="image_tuto" id = "image3" style="display:none;">img3</p>
     <p class="image_tuto" id = "image4" style="display:none;">img4</p>
     <p class="image_tuto" id = "image5" style="display:none;">img5</p>
 
+    <!-- Bouton suivant qui permet de faire défiler les images -->
     <div class="bloc_bouton">
       <input type="button" class="bouton1" value="Suivant" id="bouton_suivant" onclick="suivant()">
     </div>
 
     <script type="text/javascript">
-    var noSlide = 1;
-    var nbSlides = 5;
-    //Fonction pour cacher un element
+
+    var noSlide = 1; //Numero de slide en cours
+    var nbSlides = 5; //Nombre de slides à faire défiler
+
+    //Fonction qui cache un élément
     function hide(no)
     {
       var id = "image"+no;
@@ -52,7 +57,7 @@
       elem.style.display = "none";
     }
 
-    //Fonction pour afficher un element
+    //Fonction qui affiche un élément
     function show(no)
     {
       var id = "image"+no;
@@ -70,9 +75,10 @@
       show(num);
     }
 
+    //Fonction qui s'active l'orsqu'on clique sur le bouton suivant
     function suivant()
     {
-      noSlide++;
+      noSlide++; //On incrémente le numéro de la slide et on l'affiche en cachant les autres
       afficherSlide(noSlide);
       //Si j'arrive au bout je reviens au début
       if(noSlide>=nbSlides)

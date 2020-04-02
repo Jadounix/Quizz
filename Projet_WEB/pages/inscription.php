@@ -24,7 +24,7 @@
           <label for="password"><strong>Choisissez un mot de passe :</strong></label>
           <input type="password" class="form-control" name="pass_entre" placeholder="Votre mot de passe" required>
         </div></div>
-        <!-- Choix du statut -->
+        <!-- Choix du statut : Joueur ou Administrateur -->
         <div>
           <label for="Statut"><strong>Choisissez votre statut :</strong></label>
           <br/>

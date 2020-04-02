@@ -19,11 +19,14 @@
 
    <h2> Créer un quiz </h2>
     <br/>
+    <!-- Formualire du choix du nombre de question -->
     <form class="bloc2" action="creation_quiz.php" method="POST">
         <div class="form-group col-sm-6">
           <label for="nb_questions" class="h5">Combien de questions comportera votre quiz ?</label>
+          <!-- select permet d'avoir un menu déroulant avec autant de réponse que l'on souhaite -->
           <select name="nb_questions_entre">
               <?php
+              //L'utilisateur peut choisir entre 2 et 20 pour la création de son quiz
               for($i=2;$i<=20;$i++)
               {
                 echo "<option value='".$i."'>".$i."</option>";
