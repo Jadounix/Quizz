@@ -15,48 +15,42 @@
 </head>
 
 <body>
-  <?php
-  //On est dans l'état "connecté" en tant qu'admin
-  if (empty($_POST['login_entre']) and empty($_POST['pass_entre']) and !empty($_SESSION['login_entre']))
-  {
-   include '../includes/menu_deconnexion_ad.php'; ?>
+  <?php include '../includes/menu_deconnexion_ad.php'; ?>
 
    <h2> Mes quiz </h2>
    <br/>
    <div class="row"> <!--Pour avoir un affichage des quiz en ligne-->
-   <?php
-   //Interrogation de la base de données
-   require("../bdd/connect.php");
-   $req = 'SELECT * FROM QUIZ';
-   $data = $bdd->query($req);
-   $cpt=1;
-   while ($Tuple=$data->fetch())
-   {
-     ?>
-      <div class="col-sm-4">
-        <div class="bloc2" id="quiz<?php echo $cpt ?>"> <!-- On donne au quiz un id quizn avec n allant de 1 au nombre de quiz -->
-          <h4><?php echo $Tuple['nom'] ?></h4> <!-- On affiche le nom du quiz -->
-          <div class="bloc_bouton"> <!--On afficher le bouton pour commencer le quiz -->
-            <br/><br/>
-            <a href="editer_quiz.php?id=<?php echo $cpt ?>"><input class="bouton2" type="button" value="Editer"></a>
+     <?php
+     //Interrogation de la base de données des quiz
+     require("../bdd/connect.php");
+     $req = 'SELECT * FROM QUIZ';
+     $data = $bdd->query($req);
+     $cpt=1;
+     while ($Tuple=$data->fetch()) //On affiche tous les quiz présents dans la bdd
+     {
+       ?>
+        <div class="col-sm-4">
+          <div class="bloc2" id="quiz<?php echo $cpt ?>"> <!-- On donne au quiz un id quizn avec n allant de 1 au nombre de quiz -->
+            <h4><?php echo $Tuple['nom'] ?></h4> <!-- On affiche le nom du quiz -->
+            <div class="bloc_bouton"> <!--On afficher le bouton pour commencer le quiz -->
+              <br/><br/>
+              <!-- Lien vers le bouton permettant d'éditer le quiz -->
+              <a href="editer_quiz.php?id=<?php echo $cpt ?>"><input class="bouton2" type="button" value="Editer"></a>
+            </div>
           </div>
         </div>
-      </div>
-      <br/>
-     <?php
-     $cpt++;
-   }
-    ?>
-  </div>
-  <br/><br/>
+        <br/>
+       <?php
+       $cpt++;
+     }?>
+  </div><br/><br/>
+  <!-- Lien vers le bouton permettant de créer un quiz -->
   <div class="bloc_bouton">
    <a href="init_creation_quiz.php"> <input class="bouton2" type="button" value="Créer un quiz"> </a>
- </div>
-   <?php
- }?>
+  </div>
    <?php include '../includes/footer.php'; ?>
    <?php include '../lib/bootstrap_footer.php'; ?>
 
  </body>
 
- </html>
+</html>

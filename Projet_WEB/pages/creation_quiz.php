@@ -20,10 +20,9 @@
    include '../includes/menu_deconnexion_ad.php'; ?>
 
    <h4> Créer un quiz </h4>
-   <?php
-   $nb_questions_entre = $_POST['nb_questions_entre'];
+   <?php $nb_questions_entre = $_POST['nb_questions_entre'];?>
 
-   ?><form class="bloc2" action="creation_question.php" method="POST">
+   <form class="bloc2" action="creation_question.php" method="POST">
 
    <div class="form-group col-sm-6">
      <label for="Type">Quel est le nom de ce quiz ?</label>

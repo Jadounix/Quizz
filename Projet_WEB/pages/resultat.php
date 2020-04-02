@@ -17,10 +17,12 @@
 
 <body>
     <h2>Score</h2>
+
     <div class="bloc_score">
     <?php
     //Arrêt du chronomètre
     $stop = microtime(true);
+    //Calcul du temps total passé sur le quiz
     $chrono = round($stop - $_POST['start']); //start récupéré avec hidden
 
     //Compteur de bonnes réponses
@@ -32,13 +34,14 @@
     $data_quest = $bdd->query($req_quest);
     for($i=1;$i<=$_POST['nb_questions'];$i++)
     {
-      $Tuple=$data_quest->fetch();
+      $Tuple=$data_quest->fetch(); //On parcourt toutes réponses enrées
       if($Tuple['bonne_rep']==$_POST['reponse'.$i])
       {
-        $cpt_bonne_rep++;
+        $cpt_bonne_rep++; //Si la réponse est bonne on incrémente
       }
     }
     ?>
+      <!-- Affichage des scores en fonction du nombre de bonnes réponses -->
       <div class="bloc_resultat">
         <?php
         if($cpt_bonne_rep>=7)
@@ -59,7 +62,8 @@
           </div>
           <?php
         }
-        else {
+        else
+        {
           ?>
           <p>Dommage ! Votre score n'est que de : <?php echo $cpt_bonne_rep ?>... Ne perdez pas espoir, vous pouvez rejouer !</p>
           <div class="image">
@@ -68,6 +72,7 @@
           <br/>
           <?php
         }
+        //Affichage du chrono
         $min = (int) ($chrono/60);
         $sec = $chrono%60;
         echo 'Vous avez réalisé ce quiz en '.$min.' minute(s) et '.$sec.' seconde(s)';
@@ -86,7 +91,6 @@
     $requete->bindValue('temps',$chrono,PDO::PARAM_INT); //On enregistre le temps en secondes
     $requete->bindValue('login_joueur',$_SESSION['login_entre'],PDO::PARAM_STR);
     $requete->bindValue('no_quiz',$_POST['no_quiz'],PDO::PARAM_INT);
-
     $requete->execute();
      ?>
 
