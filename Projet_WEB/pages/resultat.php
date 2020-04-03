@@ -42,7 +42,7 @@
     }
     ?>
       <!-- Affichage des scores en fonction du nombre de bonnes réponses -->
-      <div class="bloc_resultat">
+      <div class="bloc2" id="centre">
         <?php
         if($cpt_bonne_rep>=7)
         {

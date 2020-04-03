@@ -11,7 +11,7 @@
 
     <h1>Connexion à l'espace membre</h1>
     <!-- Formulaire dans lequel sont entrés les identifiants -->
-    <form class="bloc" action="index.php" method="POST">
+    <form class="bloc1" action="index.php" method="POST">
        <div class="row"> <!-- Structure bootstrap qui permet la mise en forme du formulaire -->
         <div class="form-group col-sm-6">
           <label for="name" class="h4">Login :</label>

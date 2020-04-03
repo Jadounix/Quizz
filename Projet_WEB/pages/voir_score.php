@@ -44,8 +44,8 @@
   foreach($tab_score as $sous_tab)
   {
     ?>
-    <div class="bloc" id="quiz<?php echo $i ?>">
-    <table class="table">
+    <div class="bloc1" id="quiz<?php echo $i ?>">
+    <table class="tableau">
      <thead>
        <tr>
          <th scope="col">Nom du quiz</th>

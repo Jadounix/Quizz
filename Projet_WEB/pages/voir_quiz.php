@@ -18,7 +18,6 @@
   <?php include '../includes/menu_deconnexion_ad.php'; ?>
 
    <h2> Mes quiz </h2>
-   <br/>
    <div class="row"> <!--Pour avoir un affichage des quiz en ligne-->
      <?php
      //Interrogation de la base de données des quiz

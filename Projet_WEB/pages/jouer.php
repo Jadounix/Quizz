@@ -123,8 +123,8 @@
     }
     ?>
     <!-- Bouton suivant qui affiche les questions les unes après les autres en faisant appelle au script JS -->
-    <input type="button" name="bouton_suivant" value="Question suivante" id="bouton_suivant" onclick="suivant()">
-    <input type="hidden" name="bouton_executer" value="Valider mon quiz" id="bouton_executer">
+    <input class="bouton2" type="button" name="bouton_suivant" value="Question suivante" id="bouton_suivant" onclick="suivant()">
+    <input class="bouton2" type="hidden" name="bouton_executer" value="Valider mon quiz" id="bouton_executer">
 
     <!-- input caché permettant de transmettre le numero de quiz, le nombre de question et le temps dans ce formulaire sans que ce soit entré par l'user -->
     <input name="nb_questions" id="nb_questions" type="hidden" value="<?php echo $nb_question ?>">

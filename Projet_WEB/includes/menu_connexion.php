@@ -30,7 +30,7 @@
             <a class="nav-link" id="se_connecter" href="login.php">Se connecter</a>
           </li>
           <li class="nav-item">
-            <div class="nav-link" id="etat_connexion"> Non connecté </div>
+            <div class="nav-link" id="non_connecte"> Non connecté </div>
           </li>
         </ul>
       </div>

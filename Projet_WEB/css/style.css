@@ -1,6 +1,9 @@
 #etat_connexion{margin-left:400px;
 color:white;}
 
+#non_connecte{margin-left:650px;
+color:white;}
+
 h1{text-align:center;
 font-family:Georgia, serif;
 padding:3%;}
@@ -12,7 +15,7 @@ padding:2%;}
 h4{text-align:center;
 font-family:Georgia, serif;}
 
-.bloc{background-color:#e3befc;
+.bloc1{background-color:#e3befc;
 font-family:Georgia, serif;
 width:70%;
 padding:5%;
@@ -29,16 +32,18 @@ text-align:center;}
 
 .bouton2{
   font-family:Verdana, serif;
-  box-shadow: 1px 1px 4px #6a6a6a;}
+  box-shadow: 1px 1px 4px #6a6a6a;
+  height:43px;
+  }
 
 #bouton_suivant{padding:1%;}
 
 .bloc_bouton{text-align:center;
 padding-top:5%;}
 
-.radio{text-align:center;}
+#centre{text-align:center;}
 
-.bloc_quiz{
+.petit_bloc2{
   color:white;
   background-color:#c27ba0ff;
   border-color : #595959;
@@ -56,7 +61,7 @@ padding-top:5%;}
   font-family:Georgia, serif;
   background-color:#c27ba0ff;
   border-color : #595959;
-  border-radius : 4%;
+  border-radius : 2%;
   border-style:solid;
   border-width:7%;
   width:80%;
@@ -82,3 +87,8 @@ margin-right: auto;}
 margin:4%;}
 
 .image_tuto{text-align:center;}
+
+.tableau{
+  width:100%;
+  text-align:center;
+}

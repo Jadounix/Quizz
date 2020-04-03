@@ -19,7 +19,7 @@
   {
    include '../includes/menu_deconnexion_ad.php'; ?>
 
-   <h4> Créer un quiz </h4>
+   <h2> Créer un quiz </h2>
    <!-- On récupère le nombre de questions du quiz du questionnaire précédent -->
    <?php $nb_questions_entre = $_POST['nb_questions_entre'];?>
 

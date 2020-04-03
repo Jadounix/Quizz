@@ -26,13 +26,13 @@
 
        <h1>Bienvenue sur QuizCeption !</h1>
        <br/>
-       <p class="bloc">
-         Bonjour et bienvenue sur le site QuizCeption. <br><br>
+       <div class="bloc1">
+         <div id="centre">&#x1F3C6; Bonjour et bienvenue sur le site QuizCeption &#x1F3C6;<br/><br/></div>
          Ici vous pourrez jouer à des quiz, ou même créer votre propre quiz ! N’attendez plus et inscrivez vous !<br>
          Pour jouer à des quiz d’autres joueurs et tenter de faire les meilleurs scores possibles, inscrivez-vous en tant que joueur.
          Pour créer vos propres quiz et les faire découvrir à tous, inscrivez vous en tant qu’admin.<br><br>
          Si jamais tu es perdu, quoiqu’il arrive, le tutoriel est là pour t’aider !
-      </p>
+      </div>
 
        <div class="bloc_bouton">
          <a href="login.php"> <input class="bouton1" type="button" value="Se connecter"> </a>
@@ -48,10 +48,11 @@
        include '../includes/menu_deconnexion.php'; ?>
        <h1>Bienvenue sur QuizCeption !</h1>
        <br/>
-       <p class="bloc">Bonjour et bienvenue sur le site QuizCeption. <br><br>
+       <div class="bloc1">
+         <div id="centre">&#x1F3C6; Bonjour et bienvenue sur le site QuizCeption. &#x1F3C6;<br><br></div>
          Vous êtes connecté en tant que joueur, alors n'hésitez plus et partez à la conquête d’un quiz ! Vous pouvez également consulter vos scores.<br><br>
           Si jamais tu es perdu, quoiqu’il arrive, le tutoriel est là pour t’aider !
-      </p>
+      </div>
 
        <div class="bloc_bouton">
          <a href="choix_quiz.php"> <input class="bouton1" type="button" value="Jouer !"> </a>
@@ -65,11 +66,12 @@
        include '../includes/menu_deconnexion_ad.php'; ?>
        <h1>Bienvenue sur QuizCeption !</h1>
        <br/>
-       <p class="bloc">Bonjour et bienvenue sur le site QuizCeption. <br><br>
-         Vous êtes connecté en tant qu’admin. Vous pouvez désormais créer votre propre quiz, et le faire partager à la communauté QuizCeption, alors n’attendez plus ! <br>
+       <div class="bloc1">
+         <div id="centre">&#x1F3C6; Bonjour et bienvenue sur le site QuizCeption. &#x1F3C6;<br><br></div>
+        Vous êtes connecté en tant qu’admin. Vous pouvez désormais créer votre propre quiz, et le faire partager à la communauté QuizCeption, alors n’attendez plus ! <br>
         Vous pouvez également modifier vos quiz déja existants.<br><br>
         Si jamais tu es perdu, quoiqu’il arrive, le tutoriel est là pour t’aider !
-        </p>
+        </div>
 
        <div class="bloc_bouton">
          <a href="init_creation_quiz.php"> <input class="bouton1" type="button" value="Créer un quiz"> </a>

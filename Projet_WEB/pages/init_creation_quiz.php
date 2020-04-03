@@ -18,8 +18,7 @@
   <?php include '../includes/menu_deconnexion_ad.php'; ?>
 
    <h2> Créer un quiz </h2>
-    <br/>
-    <!-- Formualire du choix du nombre de question -->
+    <!-- Formulaire du choix du nombre de question -->
     <form class="bloc2" action="creation_quiz.php" method="POST">
         <div class="form-group col-sm-6">
           <label for="nb_questions" class="h5">Combien de questions comportera votre quiz ?</label>
@@ -33,7 +32,7 @@
               } ?>
           </select>
         </div>
-        <button type="submit" name="connexion"  class="bouton2">Valider</button>
+        <button type="submit" name="connexion" class="bouton2">Valider</button>
     </form>
 
   <?php include '../includes/footer.php'; ?>

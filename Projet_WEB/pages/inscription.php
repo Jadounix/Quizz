@@ -12,7 +12,7 @@
     <h1>S'inscrire sur QuizCeption !</h1>
 
     <!-- Formulaire envoyé lors de l'inscription -->
-    <form class="bloc" action="ajout_membre.php" method="POST">
+    <form class="bloc1" action="ajout_membre.php" method="POST">
       <div class="row">
         <!-- Choix du login -->
         <div class="form-group col-sm-6">
@@ -28,10 +28,10 @@
         <div>
           <label for="Statut"><strong>Choisissez votre statut :</strong></label>
           <br/>
-          <input class="radio" type="radio" name="statutA" id="Administrateur">
+          <input type="radio" name="statutA" id="Administrateur">
           <label class="radio" for="ad">Administrateur</label>
           <br/>
-          <input class="radio" type="radio" name="statutJ" id="Joueur">
+          <input type="radio" name="statutJ" id="Joueur">
           <label class="radio" for="joueur">Joueur</label>
         </div>
 
