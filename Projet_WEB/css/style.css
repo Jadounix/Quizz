@@ -1,34 +1,46 @@
-#etat_connexion{margin-left:400px;
-color:white;}
+body{
+  font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  }
 
-#non_connecte{margin-left:650px;
-color:white;}
+#etat_connexion{
+  margin-left:320px;
+  color:white;}
 
-h1{text-align:center;
-font-family:Georgia, serif;
-padding:3%;}
+#non_connecte{
+  margin-left:650px;
+  color:white;}
 
-h2{text-align:center;
-font-family:Georgia, serif;
-padding:2%;}
+h1{
+  text-align:center;
+  font-family:Georgia, serif;
+  padding:3%;}
 
-h4{text-align:center;
-font-family:Georgia, serif;}
+h2{
+  text-align:center;
+  font-family:Georgia, serif;
+  padding:2%;}
 
-.bloc1{background-color:#e3befc;
-font-family:Georgia, serif;
-width:70%;
-padding:5%;
-margin:auto;
-box-shadow: 2px 2px 5px #6a6a6a;}
+h4{
+  text-align:center;
+  font-family:Georgia, serif;
+  padding:2%;}
 
-.bouton1{color:white;
-background-color:#c27ba0ff;
-font-family:Verdana, serif;
-border-color : #595959;
-border-radius:10%;
-padding:2%;
-text-align:center;}
+.bloc1{
+  background-color:#e3befc;
+  font-family:Georgia, serif;
+  width:70%;
+  padding:5%;
+  margin:auto;
+  box-shadow: 2px 2px 5px #6a6a6a;}
+
+.bouton1{
+  color:white;
+  background-color:#c27ba0ff;
+  font-family:Verdana, serif;
+  border-color : #595959;
+  border-radius:10%;
+  padding:2%;
+  text-align:center;}
 
 .bouton2{
   font-family:Verdana, serif;
@@ -38,8 +50,9 @@ text-align:center;}
 
 #bouton_suivant{padding:1%;}
 
-.bloc_bouton{text-align:center;
-padding-top:5%;}
+.bloc_bouton{
+  text-align:center;
+  padding-top:5%;}
 
 #centre{text-align:center;}
 
@@ -50,11 +63,10 @@ padding-top:5%;}
   border-radius : 10%;
   border-style:solid;
   border-width:7%;
-  width:220px;
-  height:190px;
+  width:65%;
+  height:97%;
   padding:5%;
-  margin:auto;
-  }
+  margin:auto;}
 
 .bloc2{
   color:white;
@@ -66,29 +78,32 @@ padding-top:5%;}
   border-width:7%;
   width:80%;
   padding:5%;
-  margin-left: auto; /*pour centrer le bloc*/
-  margin-right: auto;
-  }
+  margin:auto;}
 
-.bloc_resultat{color:white;
-font-family:Georgia, serif;
-text-align:center;
-background-color:#c27ba0ff;
-border-color : #595959;
-border-radius : 4%;
-border-style:solid;
-border-width:7%;
-width:65%;
-padding:3%;
-margin-left: auto;
-margin-right: auto;}
+#edition{border-radius : 1%;}
+
+.bloc_resultat{
+  color:white;
+  font-family:Georgia, serif;
+  text-align:center;
+  background-color:#c27ba0ff;
+  border-color : #595959;
+  border-radius : 4%;
+  border-style:solid;
+  border-width:7%;
+  width:65%;
+  padding:3%;
+  margin:auto;}
 
 .image{text-align:center;
-margin:4%;}
+  margin:4%;}
 
 .image_tuto{text-align:center;}
 
 .tableau{
   width:100%;
-  text-align:center;
-}
+  text-align:center;}
+
+.lien{
+  color:#c27ba0ff;
+  margin-left:42%;}

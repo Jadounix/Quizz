@@ -86,9 +86,9 @@
     }
   }
 
-  echo 'Votre questionnaire a bien été créé !';
-  echo '<br>';
-  echo '<a href="index.php">Revenir à la page pricipale.</a>';
+  echo '<h4>Votre questionnaire a bien été créé !</h4>';
+  echo '<br/>';
+  echo '<a class="lien" href="index.php">➔ Revenir à la page principale.</a>';
    ?>
 
   <?php include '../includes/footer.php'; ?>

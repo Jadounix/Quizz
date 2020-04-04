@@ -17,7 +17,6 @@
 
 <body>
     <h1>Choix du quiz</h1>
-    <br/>
     <div class="row"> <!--Pour avoir un affichage des quiz en ligne-->
 
     <?php
@@ -45,7 +44,7 @@
     }
      ?>
     </div>
-    
+
 
   <?php include '../includes/footer.php'; ?>
   <?php include '../lib/bootstrap_footer.php'; ?>

@@ -76,9 +76,9 @@
   }
 
   ?>
-   <p>Votre questionnaire a bien été modifié !</p>
-   <br>
-   <a href="index.php">Revenir à la page pricipale.</a>
+   <h4>Votre questionnaire a bien été modifié !</h4>
+   <br/>
+   <a class="lien" href="index.php">➔ Revenir à la page pricipale.</a>
 
 
   <?php include '../includes/footer.php'; ?>

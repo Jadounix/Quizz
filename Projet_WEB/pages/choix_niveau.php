@@ -29,7 +29,7 @@
     <br/>
     <input class="radio" type="radio" name="niveau" value="difficile">
     <label class="radio" for="difficile">Difficile</label>
-    <br/>
+    <br/><br/>
     <button type="submit" name="connexion"  class="bouton2">Valider</button>
   </form>
 

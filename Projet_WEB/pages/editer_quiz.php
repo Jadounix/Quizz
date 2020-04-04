@@ -32,10 +32,9 @@
     }
     ?>
     <h2><?php echo $nom_quiz ?></h2>
-    <hr/>
 
     <!-- Edition du quiz sous la forme d'un formulaire -->
-    <div class="bloc">
+    <div class="bloc2" id="edition">
       <form action="recup_editer_quiz.php" method="POST">
 
       <!-- Interrogation de la base de données des questions -->
@@ -52,12 +51,12 @@
           <br/>
           <!-- Libellé de la question -->
           <strong><div class="libelle_question"><?php echo $Tuple['lib_question'] ?></div></strong>
-          <br>
+          <br/>
           <label>Modifier la question</label>
-          <br>
+          <br/>
           <input type="text" name="new_lib<?php echo $i ?>"> <!--Ici on rentre le nouveau libellé de la question -->
           <input name="numero_question<?php echo $i ?>" type="hidden" value="<?php echo $Tuple['no_question'] ?>"> <!--input caché permettant de retenir le numero de la question entrée -->
-          <br>
+          <br/>
           <?php
 
           //Si question ouverte
@@ -65,7 +64,7 @@
           {
             ?>
             <label>Ecrire la nouvelle bonne réponse</label>
-            <br>
+            <br/>
             <textarea id="reponse" name="new_reponse_ouverte<?php echo $Tuple['no_question'] ?>" ></textarea>
             <?php
           }
@@ -102,9 +101,9 @@
             }
             ?>
             <!-- Bonne réponse dans le cas d'une question à choix multiple -->
-            <br>
+            <br/>
             <label>Quelle sera la bonne réponse à cette question ?</label>
-            <br>
+            <br/>
             <!-- un select permet de désigné laquelle des réponses doit être la bonne -->
             <select name="bonne_reponse_cm<?php echo $i ?>">
                 <option value='0'>Inchangé</option>
@@ -123,7 +122,9 @@
       }
       ?>
       <!-- Envoie du formulaire avec le numero de quiz caché -->
-      <input type="submit" name="bouton_executer" value="Valider" id="bouton_executer">
+      <div id="centre">
+        <input class="bouton2" type="submit" name="bouton_executer" value="Valider" id="bouton_executer">
+      </div>
       <input name="numero_quiz" type="hidden" value="<?php echo $numero_quiz ?>">
     </form>
     </div>

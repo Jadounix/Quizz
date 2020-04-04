@@ -17,7 +17,7 @@
 <body>
   <?php include '../includes/menu_deconnexion_ad.php'; ?>
 
-   <h2> Mes quiz </h2>
+   <h1> Mes quiz </h1>
    <div class="row"> <!--Pour avoir un affichage des quiz en ligne-->
      <?php
      //Interrogation de la base de données des quiz
@@ -29,7 +29,7 @@
      {
        ?>
         <div class="col-sm-4">
-          <div class="bloc2" id="quiz<?php echo $cpt ?>"> <!-- On donne au quiz un id quizn avec n allant de 1 au nombre de quiz -->
+          <div class="petit_bloc2" id="quiz<?php echo $cpt ?>"> <!-- On donne au quiz un id quizn avec n allant de 1 au nombre de quiz -->
             <h4><?php echo $Tuple['nom'] ?></h4> <!-- On affiche le nom du quiz -->
             <div class="bloc_bouton"> <!--On afficher le bouton pour commencer le quiz -->
               <br/><br/>
@@ -38,11 +38,10 @@
             </div>
           </div>
         </div>
-        <br/>
        <?php
        $cpt++;
      }?>
-  </div><br/><br/>
+  </div>
   <!-- Lien vers le bouton permettant de créer un quiz -->
   <div class="bloc_bouton">
    <a href="init_creation_quiz.php"> <input class="bouton2" type="button" value="Créer un quiz"> </a>
