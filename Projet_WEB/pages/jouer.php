@@ -59,7 +59,7 @@
         //Si question ouverte
         if($TupleQ['type']=='ouverte')
         {
-          echo '<textarea id="reponse" name="reponse'.$TupleQ['no_question'].'" class="form-control"></textarea>';
+          echo '<textarea id="reponse" name="reponse'.$i.'" class="form-control"></textarea>';
         }
         //Si question à choix multiple
         elseif ($TupleQ['type']=='CM' and $niveau=="facile")
@@ -77,7 +77,7 @@
             {
               ?>
                <br>
-               <input type="radio" name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
+               <input type="radio" name ="reponse<?php echo $i ?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
               $br++;
@@ -88,7 +88,7 @@
               {
               ?>
                <br>
-               <input type="radio" name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
+               <input type="radio" name ="reponse<?php echo $i ?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
                 $mr++;
@@ -110,7 +110,7 @@
               ?>
                <br>
                <!-- Affichage des réponses sous le tyoe radio -->
-               <input type="radio" name ="reponse<?php echo $TupleQ['no_question']?>" value="<?php echo $TupleR['lib_rep']?>">
+               <input type="radio" name ="reponse<?php echo $i ?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
             }

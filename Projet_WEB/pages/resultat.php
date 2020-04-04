@@ -28,14 +28,17 @@
     //Compteur de bonnes réponses
     $cpt_bonne_rep = 0;
 
+    //On récupère le numero du quiz
+    $no_quiz =  $_POST['no_quiz'];
+
     //Parcours de la base de données des questions
     require("../bdd/connect.php");
-    $req_quest = 'SELECT * FROM QUESTION';
+    $req_quest = "SELECT * FROM QUESTION WHERE no_quiz = '$no_quiz'";
     $data_quest = $bdd->query($req_quest);
     for($i=1;$i<=$_POST['nb_questions'];$i++)
     {
       $Tuple=$data_quest->fetch(); //On parcourt toutes réponses enrées
-      if($Tuple['bonne_rep']==$_POST['reponse'.$i])
+      if($Tuple['bonne_rep'] == $_POST['reponse'.$i])
       {
         $cpt_bonne_rep++; //Si la réponse est bonne on incrémente
       }
@@ -44,7 +47,7 @@
       <!-- Affichage des scores en fonction du nombre de bonnes réponses -->
       <div class="bloc2" id="centre">
         <?php
-        if($cpt_bonne_rep>=7)
+        if($cpt_bonne_rep>=$_POST['nb_questions']*(3/4))
         {
           ?>
           <p>Félicitations ! Votre score est de : <?php echo $cpt_bonne_rep ?> / <?php echo $_POST['nb_questions'] ?></p>
@@ -53,7 +56,7 @@
           </div>
           <?php
         }
-        elseif ($cpt_bonne_rep<7 && $cpt_bonne_rep>=5)
+        elseif ($cpt_bonne_rep<$_POST['nb_questions']*(3/4) && $cpt_bonne_rep>=$_POST['nb_questions']*(1/2))
         {
           ?>
           <p>Pas mal ! Votre score est de : <?php echo $cpt_bonne_rep ?></p>

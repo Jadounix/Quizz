@@ -108,7 +108,7 @@
           <?php include '../includes/menu_deconnexion.php'; ?>
           <h1>Bienvenue sur QuizCeption !</h1>
           <br/>
-          <p class="bloc">Bonjour et bienvenue sur le site QuizCeption. <br><br>
+          <p class="bloc1">Bonjour et bienvenue sur le site QuizCeption. <br><br>
             Vous êtes connecté en tant que joueur, alors n'hésitez plus et partez à la conquête d’un quiz ! Vous pouvez également consulter vos scores.<br><br>
              Si jamais tu es perdu, quoiqu’il arrive, le tutoriel est là pour t’aider !</p>
 
@@ -140,7 +140,7 @@
 
         <h1>Bienvenue sur QuizCeption !</h1>
         <br/>
-        <p class="bloc">Bonjour et bienvenue sur le site QuizCeption. <br><br>
+        <p class="bloc1">Bonjour et bienvenue sur le site QuizCeption. <br><br>
           Vous êtes connecté en tant qu’admin. Vous pouvez désormais créer votre propre quiz, et le faire partager à la communauté QuizCeption, alors n’attendez plus ! <br>
          Vous pouvez également modifier vos quiz déja existants.<br><br>
          Si jamais tu es perdu, quoiqu’il arrive, le tutoriel est là pour t’aider !</p>

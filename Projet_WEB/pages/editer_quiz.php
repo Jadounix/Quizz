@@ -65,7 +65,7 @@
             ?>
             <label>Ecrire la nouvelle bonne réponse</label>
             <br/>
-            <textarea id="reponse" name="new_reponse_ouverte<?php echo $Tuple['no_question'] ?>" ></textarea>
+            <textarea id="reponse" name="new_reponse_ouverte<?php echo $i ?>" ></textarea>
             <?php
           }
 
@@ -86,11 +86,11 @@
                  <br>
                  <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
                  <!--input caché qui garde en mémoire le libellé de la réponse-->
-                 <input name="lib_reponse_cm<?php echo $TupleR['no_question'].'_'.$num_sous_rep ?>" type="hidden" value="<?php echo $TupleR['lib_rep'] ?>">
+                 <input name="lib_reponse_cm<?php echo $i.'_'.$num_sous_rep ?>" type="hidden" value="<?php echo $TupleR['lib_rep'] ?>">
                  <br>
-                 <textarea id="reponse" name="new_reponse_cm<?php echo $TupleR['no_question'].'_'.$num_sous_rep ?>" placeholder="Modifier la réponse ici" ></textarea>
+                 <textarea id="reponse" name="new_reponse_cm<?php echo $i.'_'.$num_sous_rep ?>" placeholder="Modifier la réponse ici" ></textarea>
                  <!--input caché qui garde en mémoire le numero de la sous reponse -->
-                 <input name="id_rep<?php echo $TupleR['no_question'].'_'.$num_sous_rep ?>" type="hidden" value="<?php echo $TupleR['no_rep'] ?>">
+                 <input name="id_rep<?php echo $i.'_'.$num_sous_rep ?>" type="hidden" value="<?php echo $TupleR['no_rep'] ?>">
                  <br>
                 <?php
                 /* Petite explication :
@@ -117,8 +117,8 @@
             <?php
           }
           echo '<hr>'; //Ligne entre chaque question
+          $i++; //Compteur de la boucle while
         }
-        $i++; //Compteur de la boucle while
       }
       ?>
       <!-- Envoie du formulaire avec le numero de quiz caché -->
