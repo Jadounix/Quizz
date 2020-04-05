@@ -34,7 +34,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `admin`
+-- Insertion d'un admnistrateur dans la table `admin`
 --
 
 INSERT INTO `admin` (`login_ad`, `mdp_ad`) VALUES
@@ -52,7 +52,7 @@ CREATE TABLE `joueur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Insertion  la table `joueur`
+-- Insertion d'un joueur la table `joueur`
 --
 
 INSERT INTO `joueur` (`login_joueur`, `mdp_joueur`) VALUES
@@ -81,11 +81,11 @@ INSERT INTO `question` (`no_question`, `lib_question`, `bonne_rep`, `type`, `no_
 (2, 'Comment trouver un bon thème de quiz ?', 'Demander à Juliette et Jade une idée', 'CM', 1),
 (3, 'Parmi les propositions suivantes, laquelle n\'est pas un type de question valable pour un quiz ?', 'Question entrouverte', 'CM', 1),
 (4, 'Que faut-il faire pour rendre un quiz moins ennuyeux ?', 'Le rendre drôle par la question : Que faut-il faire pour rendre un quiz moins ennuyeux ?', 'CM', 1),
-(5, 'Quel temps faut-il allouer pour un quiz de 10 questions', '5', 'ouverte', 1),
+(5, 'Quel temps (en minutes) faut-il allouer pour un quiz de 10 questions ?', '5', 'ouverte', 1),
 (6, 'De quel pays est originaire le Trivial Pursuit ?', 'Québec', 'CM', 1),
 (7, 'Laquelle de ces propositions n\'est pas un support de quiz ?', 'Un journal intime', 'CM', 1),
-(8, ' Au tarot, comment nomme-t-on les cartes 1, 21 et l’excuse ?', 'Les bouts', 'CM', 1),
-(9, 'La question précédente aurait pu être dans un quiz dont le thème serait.. ?', 'Les jeux de cartes', 'CM', 1),
+(8, 'Au tarot, comment nomme-t-on les cartes 1, 21 et l’excuse ?', 'Les bouts', 'CM', 1),
+(9, 'La question précédente aurait pu se trouver dans un quiz dont le thème serait...', 'Les jeux de cartes', 'CM', 1),
 (10, 'Quelle est la qualité primordiale d\'un quiz ?', 'Flatter l\'égo de la personne avec des questions faciles (mais pas trop non plus)', 'CM', 1);
 
 -- --------------------------------------------------------
@@ -109,7 +109,7 @@ CREATE TABLE `quiz` (
 --
 
 INSERT INTO `quiz` (`no_quiz`, `nom`, `meilleur_score`, `meilleur_temps`, `temps_max`, `nb_question`, `login_ad`) VALUES
-(1, 'Comment faire un Quiz ?', 0, 0, 5, 10, NULL);
+(1, 'Comment faire un Quiz ?', 0, 0, 5, 10, 'youyou');
 
 -- --------------------------------------------------------
 
