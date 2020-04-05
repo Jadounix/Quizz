@@ -33,11 +33,18 @@
 
     <!-- Images du tuto à faire défiler
     La première est affcihé, les autres sont cachés pour l'instant -->
-    <p class="image_tuto" id = "image1">img1</p>
-    <p class="image_tuto" id = "image2" style="display:none;">img2</p>
-    <p class="image_tuto" id = "image3" style="display:none;">img3</p>
-    <p class="image_tuto" id = "image4" style="display:none;">img4</p>
-    <p class="image_tuto" id = "image5" style="display:none;">img5</p>
+    <div class="bloc1">
+      <img src="../images/Tuto1.png" alt="tutoriel" id="image1" height="405px" width="720px"/>
+      <?php
+      $nbSlides = 16;
+      for($i=2;$i<=$nbSlides;$i++)
+      {
+        ?>
+        <img src="../images/Tuto<?php echo $i ?>.png" alt="tutoriel" id="image<?php echo $i ?>" height="405px" width="720px" style="display:none;"/>
+        <?php
+      } ?>
+    </div>
+
 
     <!-- Bouton suivant qui permet de faire défiler les images -->
     <div class="bloc_bouton">
@@ -47,7 +54,7 @@
     <script type="text/javascript">
 
     var noSlide = 1; //Numero de slide en cours
-    var nbSlides = 5; //Nombre de slides à faire défiler
+    var nbSlides = 16; //Nombre de slides à faire défiler
 
     //Fonction qui cache un élément
     function hide(no)
