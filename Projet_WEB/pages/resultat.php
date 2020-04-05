@@ -38,7 +38,7 @@
     for($i=1;$i<=$_POST['nb_questions'];$i++)
     {
       $Tuple=$data_quest->fetch(); //On parcourt toutes réponses enrées
-      if($Tuple['bonne_rep'] == $_POST['reponse'.$i])
+      if(isset($_POST['reponse'.$i]) and $Tuple['bonne_rep'] == $_POST['reponse'.$i])
       {
         $cpt_bonne_rep++; //Si la réponse est bonne on incrémente
       }
@@ -89,7 +89,15 @@
 
     <!-- Enregistrement du score dans la base de données -->
     <?php
-    $requete = $bdd->prepare("INSERT INTO SCORE(nb_points,temps,login_joueur, no_quiz) VALUES (:nb_points,:temps,:login_joueur,:no_quiz)");
+    //On récupère le numero du dernier score créé
+    $requete_no_score = "SELECT MAX(no_score) as max FROM SCORE";
+    $data_no_score = $bdd->query($requete_no_score);
+    $Tuple=$data_no_score->fetch();
+    //Variable contenant le numero du score crée en dernier
+    $no_new_score = $Tuple['max'];
+
+    $requete = $bdd->prepare("INSERT INTO SCORE(no_score,nb_points,temps,login_joueur,no_quiz) VALUES (:no_score,:nb_points,:temps,:login_joueur,:no_quiz)");
+    $requete->bindValue('no_score',$no_new_score+1,PDO::PARAM_INT);
     $requete->bindValue('nb_points',$cpt_bonne_rep,PDO::PARAM_INT);
     $requete->bindValue('temps',$chrono,PDO::PARAM_INT); //On enregistre le temps en secondes
     $requete->bindValue('login_joueur',$_SESSION['login_entre'],PDO::PARAM_STR);

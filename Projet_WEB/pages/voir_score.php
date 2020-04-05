@@ -21,10 +21,6 @@
   <h2> Mes scores </h2>
 
   <?php
-  //Interrogation de la base de données des quiz pour retrouver le nom du quiz
-  require("../bdd/connect.php");
-  $req_quiz = 'SELECT * FROM QUIZ';
-  $data_quiz = $bdd->query($req_quiz);
 
   //Interrogation de la base de données des scores
   require("../bdd/connect.php");
@@ -43,6 +39,10 @@
   //On parcourt tous les scores de la table
   foreach($tab_score as $sous_tab)
   {
+    //Interrogation de la base de données des quiz pour retrouver le nom du quiz
+    require("../bdd/connect.php");
+    $req_quiz = 'SELECT * FROM QUIZ';
+    $data_quiz = $bdd->query($req_quiz);
     ?>
     <div class="bloc1" id="quiz<?php echo $i ?>">
     <table class="tableau">
