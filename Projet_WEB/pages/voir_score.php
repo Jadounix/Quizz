@@ -60,11 +60,12 @@
            if($Tuple_quiz['no_quiz']==$sous_tab['no_quiz'])
            {
              echo $Tuple_quiz['nom']; //Affichage du nom du quiz
+             $nb_questions = $Tuple_quiz['nb_question'];
            }
          } ?>
          </td>
          <td><?php echo (int) ($sous_tab['Temps réalisé']/60)."min ".($sous_tab['Temps réalisé']%60)."s"?></td> <!-- Affichage du temps -->
-         <td><?php echo $sous_tab['Score réalisé'] ?></td> <!-- Affichage du score -->
+         <td><?php echo $sous_tab['Score réalisé'].'/'.$nb_questions ?></td> <!-- Affichage du score -->
        </tr>
      </tbody>
    </table></div><br/>
