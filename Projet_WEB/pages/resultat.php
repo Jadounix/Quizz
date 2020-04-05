@@ -58,7 +58,7 @@
           ?>
           <p>Pas mal ! Votre score est de : <?php echo $cpt_bonne_rep ?></p>
           <div class="image">
-            <img src="../images/pouce_haut.png" alt="Pas mal...réessayez !" height="30%"/><br/>
+            <img src="../images/pouce_haut.png" alt="Pas mal...réessayez !" height="85px" width="85px"/><br/>
           </div>
           <?php
         }
