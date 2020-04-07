@@ -64,6 +64,15 @@ h4{
   height:43px;
   }
 
+.bouton_tuto{
+  color:white;
+  background-color:#c27ba0ff;
+  font-family:Verdana, serif;
+  border-color : #595959;
+  border-radius:10%;
+  padding:1%;
+  text-align:center;}
+
 #bouton_suivant{padding:1%;}
 
 .bloc_bouton{

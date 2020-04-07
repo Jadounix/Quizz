@@ -31,42 +31,32 @@
 
     <h1>Tutoriel du site QuizCeption</h1>
 
-    <!-- Bouton qui eprmettent d'accéder directemment à l'un des tutos -->
-    <table>
-      <tr>
-        <td><div class="bloc_bouton">
-          <input type="button" class="bouton1" value="S'inscrire" id="insciption" onclick="afficherSlide(2)">
-        </div></td>
-        <td><div class="bloc_bouton">
-          <input type="button" class="bouton1" value="Se connecter" id="connexion" onclick="afficherSlide(3)">
-        </div></td>
-        <td><div class="bloc_bouton">
-          <input type="button" class="bouton1" value="Jouer à un quiz" id="jouer" onclick="afficherSlide(4)">
-        </div></td>
-        <td><div class="bloc_bouton">
-          <input type="button" class="bouton1" value="Voir mes scores" id="scores" onclick="afficherSlide(8)">
-        </div></td>
-        <td><div class="bloc_bouton">
-          <input type="button" class="bouton1" value="Créer un quiz" id="creer" onclick="afficherSlide(9)">
-        </div></td>
-        <td><div class="bloc_bouton">
-          <input type="button" class="bouton1" value="Modifier un quiz" id="modifier" onclick="afficherSlide(13)">
-        </div></td>
-      </tr>
-    </table>
+    <!-- Bouton qui permettent d'accéder directemment à l'un des tutos -->
+    <div class="bloc_bouton">
+      <input type="button" class="bouton_tuto" value="S'inscrire" id="insciption" onclick="afficherSlide(2)">
+      <input type="button" class="bouton_tuto" value="Se connecter" id="connexion" onclick="afficherSlide(3)">
+      <input type="button" class="bouton_tuto" value="Jouer à un quiz" id="jouer" onclick="afficherSlide(4)">
+      <input type="button" class="bouton_tuto" value="Voir mes scores" id="scores" onclick="afficherSlide(8)">
+      <input type="button" class="bouton_tuto" value="Créer un quiz" id="creer" onclick="afficherSlide(9)">
+      <input type="button" class="bouton_tuto" value="Modifier un quiz" id="modifier" onclick="afficherSlide(13)">
+    </div>
 
-    <br><br>
+    <br/>
 
     <!-- Images du tuto à faire défiler
     La première est affcihé, les autres sont cachés pour l'instant -->
     <div class="bloc1">
-      <img src="../images/Tuto1.png" alt="tutoriel" id="image1" height="360px" width="640px"/>
+      <div id="centre">
+        <img src="../images/Tuto1.png" alt="tutoriel" id="image1" height="360px" width="640px"/>
+      </div>
       <?php
       $nbSlides = 15;
       for($i=2;$i<=$nbSlides;$i++)
       {
         ?>
-        <img src="../images/Tuto<?php echo $i ?>.png" alt="tutoriel" id="image<?php echo $i ?>" height="360px" width="640px" style="display:none;"/>
+        <div id="centre">
+          <img src="../images/Tuto<?php echo $i ?>.png" alt="tutoriel" id="image<?php echo $i ?>" height="360px" width="640px" style="display:none;"/>
+        </div>
         <?php
       } ?>
 
