@@ -33,18 +33,18 @@
 
     <!-- Bouton qui permettent d'accéder directemment à l'un des tutos -->
     <div class="bloc_bouton">
-      <input type="button" class="bouton_tuto" value="S'inscrire" id="insciption" onclick="afficherSlide(2)">
-      <input type="button" class="bouton_tuto" value="Se connecter" id="connexion" onclick="afficherSlide(3)">
-      <input type="button" class="bouton_tuto" value="Jouer à un quiz" id="jouer" onclick="afficherSlide(4)">
-      <input type="button" class="bouton_tuto" value="Voir mes scores" id="scores" onclick="afficherSlide(8)">
-      <input type="button" class="bouton_tuto" value="Créer un quiz" id="creer" onclick="afficherSlide(9)">
-      <input type="button" class="bouton_tuto" value="Modifier un quiz" id="modifier" onclick="afficherSlide(13)">
+      <input type="button" class="bouton1" value="S'inscrire" id="bouton_suivant" onclick="afficherSlide(2)">
+      <input type="button" class="bouton1" value="Se connecter" id="bouton_suivant" onclick="afficherSlide(3)">
+      <input type="button" class="bouton1" value="Jouer à un quiz" id="bouton_suivant" onclick="afficherSlide(4)">
+      <input type="button" class="bouton1" value="Voir mes scores" id="bouton_suivant" onclick="afficherSlide(8)">
+      <input type="button" class="bouton1" value="Créer un quiz" id="bouton_suivant" onclick="afficherSlide(9)">
+      <input type="button" class="bouton1" value="Modifier un quiz" id="bouton_suivant" onclick="afficherSlide(13)">
     </div>
 
     <br/>
 
     <!-- Images du tuto à faire défiler
-    La première est affcihé, les autres sont cachés pour l'instant -->
+    La première est affiché, les autres sont cachés pour l'instant -->
     <div class="bloc1">
       <div id="centre">
         <img src="../images/Tuto1.png" alt="tutoriel" id="image1" height="360px" width="640px"/>
