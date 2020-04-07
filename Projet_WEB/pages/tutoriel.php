@@ -31,30 +31,57 @@
 
     <h1>Tutoriel du site QuizCeption</h1>
 
+    <!-- Bouton qui eprmettent d'accéder directemment à l'un des tutos -->
+    <table>
+      <tr>
+        <td><div class="bloc_bouton">
+          <input type="button" class="bouton1" value="S'inscrire" id="insciption" onclick="afficherSlide(2)">
+        </div></td>
+        <td><div class="bloc_bouton">
+          <input type="button" class="bouton1" value="Se connecter" id="connexion" onclick="afficherSlide(3)">
+        </div></td>
+        <td><div class="bloc_bouton">
+          <input type="button" class="bouton1" value="Jouer à un quiz" id="jouer" onclick="afficherSlide(4)">
+        </div></td>
+        <td><div class="bloc_bouton">
+          <input type="button" class="bouton1" value="Voir mes scores" id="scores" onclick="afficherSlide(8)">
+        </div></td>
+        <td><div class="bloc_bouton">
+          <input type="button" class="bouton1" value="Créer un quiz" id="creer" onclick="afficherSlide(9)">
+        </div></td>
+        <td><div class="bloc_bouton">
+          <input type="button" class="bouton1" value="Modifier un quiz" id="modifier" onclick="afficherSlide(13)">
+        </div></td>
+      </tr>
+    </table>
+
+    <br><br>
+
     <!-- Images du tuto à faire défiler
     La première est affcihé, les autres sont cachés pour l'instant -->
     <div class="bloc1">
-      <img src="../images/Tuto1.png" alt="tutoriel" id="image1" height="405px" width="720px"/>
+      <img src="../images/Tuto1.png" alt="tutoriel" id="image1" height="360px" width="640px"/>
       <?php
-      $nbSlides = 16;
+      $nbSlides = 15;
       for($i=2;$i<=$nbSlides;$i++)
       {
         ?>
-        <img src="../images/Tuto<?php echo $i ?>.png" alt="tutoriel" id="image<?php echo $i ?>" height="405px" width="720px" style="display:none;"/>
+        <img src="../images/Tuto<?php echo $i ?>.png" alt="tutoriel" id="image<?php echo $i ?>" height="360px" width="640px" style="display:none;"/>
         <?php
       } ?>
+
+      <!-- Bouton suivant qui permet de faire défiler les images -->
+      <div class="bloc_bouton">
+        <input type="button" class="bouton1" value="Suivant" id="bouton_suivant" onclick="suivant()">
+      </div>
     </div>
 
 
-    <!-- Bouton suivant qui permet de faire défiler les images -->
-    <div class="bloc_bouton">
-      <input type="button" class="bouton1" value="Suivant" id="bouton_suivant" onclick="suivant()">
-    </div>
 
     <script type="text/javascript">
 
     var noSlide = 1; //Numero de slide en cours
-    var nbSlides = 16; //Nombre de slides à faire défiler
+    var nbSlides = 15; //Nombre de slides à faire défiler
 
     //Fonction qui cache un élément
     function hide(no)
@@ -75,6 +102,7 @@
     //Fonction qui affiche une des slides du tuto et qui cache les autres
     function afficherSlide(num)
     {
+      noSlide = num;
       for(var i=1;i<=nbSlides;i++)
       {
         hide(i);
