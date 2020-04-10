@@ -51,7 +51,6 @@ h4{
 .bouton1{
   color:white;
   background-color:#c27ba0ff;
-  font-family:Verdana, serif;
   border-color : #595959;
   border-radius:10%;
   padding:2%;
@@ -59,7 +58,6 @@ h4{
 
 .bouton2{
   background-color:#fff;
-  font-family:Verdana, serif;
   box-shadow: 1px 1px 4px #6a6a6a;
   height:43px;
   }
