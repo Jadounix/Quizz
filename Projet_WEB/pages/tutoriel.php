@@ -54,7 +54,7 @@
       for($i=2;$i<=$nbSlides;$i++)
       {
         ?>
-        <div id="centre">
+        <div class="centre">
           <img src="../images/Tuto<?php echo $i ?>.png" alt="tutoriel" id="image<?php echo $i ?>" height="360px" width="640px" style="display:none;"/>
         </div>
         <?php

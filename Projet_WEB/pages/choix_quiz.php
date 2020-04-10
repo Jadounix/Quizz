@@ -31,7 +31,7 @@
      ?>
     <div class="col-sm-4">
       <div class="petit_bloc2" id="quiz<?php echo $cpt ?>"> <!-- On donne au quiz un id "quizn" avec n allant de 1 au nombre de quiz -->
-      <h4><?php echo $Tuple['nom']?></h4> <!-- On affiche le nom du quiz -->
+      <h4><em><?php echo $Tuple['nom']?></em></h4> <!-- On affiche le nom du quiz -->
         <div class="bloc_bouton"> <!-- On affiche le bouton pour commencer le quiz -->
         <br/><br/>
         <!-- Le bouton Jouer envoie à la page de choix du niveau du quiz -->
