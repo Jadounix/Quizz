@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jouer au quiz</title>
   <meta name="description">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
 
   <?php include '../lib/bootstrap_header.php'; ?>
   <?php include '../includes/menu_deconnexion.php'; ?>

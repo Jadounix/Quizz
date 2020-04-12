@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Inscription</title>
     <?php include '../lib/bootstrap_header.php'; ?>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
   </head>
   <body>
   <?php include '../includes/menu_connexion.php'; ?>
