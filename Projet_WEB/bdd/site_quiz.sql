@@ -152,10 +152,7 @@ INSERT INTO `reponse` (`no_rep`, `lib_rep`, `no_question`) VALUES
 (22, 'L\'ENSC', 9),
 (23, 'Augmenter la culture générale', 10),
 (24, 'Flatter l\'égo de la personne avec des questions faciles (mais pas trop non plus)', 10),
-(25, 'Détendre la personne devant une tâche divertissante', 10),
-(50, '1', 11),
-(51, '2', 11),
-(52, '3', 11);
+(25, 'Détendre la personne devant une tâche divertissante', 10);
 
 -- --------------------------------------------------------
 
@@ -176,7 +173,7 @@ CREATE TABLE `score` (
 --
 
 INSERT INTO `score` (`no_score`, `nb_points`, `temps`, `login_joueur`, `no_quiz`) VALUES
-(1, 7, 0, 'toto', NULL);
+(1, 7, 0, 'toto', 1);
 
 --
 -- Clé primaire de la table `admin`
@@ -218,25 +215,25 @@ ALTER TABLE `score`
 -- AUTO_INCREMENT pour la table `question`
 --
 ALTER TABLE `question`
-  MODIFY `no_question` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `no_question` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `quiz`
 --
 ALTER TABLE `quiz`
-  MODIFY `no_quiz` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `no_quiz` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `reponse`
 --
 ALTER TABLE `reponse`
-  MODIFY `no_rep` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `no_rep` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT pour la table `score`
 --
 ALTER TABLE `score`
-  MODIFY `no_score` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `no_score` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
