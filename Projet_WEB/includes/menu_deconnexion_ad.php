@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css">
-    <title></title>
-  </head>
-  <body>
+
     <!-- Menu créé grâce à un exemple de menu en boostrap trouvé dans un tuto -->
 
     <!-- Balise permettant de retourner sur la page d'accueil -->
@@ -36,6 +29,3 @@
         </ul>
       </div>
     </nav>
-
-  </body>
-</html>
