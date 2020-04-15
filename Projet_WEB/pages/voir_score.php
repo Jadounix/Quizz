@@ -25,14 +25,16 @@
 
   //Interrogation de la base de données des scores
   require("../bdd/connect.php");
-  $req_score = 'SELECT MAX(nb_points) as nb_points, no_quiz, temps FROM SCORE GROUP BY no_quiz';
+  $req_score = 'SELECT MAX(nb_points) as nb_points, no_quiz, temps, login_joueur FROM SCORE GROUP BY no_quiz';
   $data_score = $bdd->query($req_score);
   $tab_score=[]; //Tableau qui contiendra les scores
 
   //les scores sont stockés par quiz dans un tableau de tableaux
   while($Tuple_score=$data_score->fetch())
   {
-    $tab_score[]=['no_quiz'=>$Tuple_score['no_quiz'], 'Temps réalisé'=>$Tuple_score['temps'], 'Score réalisé'=>$Tuple_score['nb_points']];
+    if($Tuple_score['login_joueur']==$_SESSION['login_entre']){ //Seuls les scores du joueur connecté s'affichent
+      $tab_score[]=['no_quiz'=>$Tuple_score['no_quiz'], 'Temps réalisé'=>$Tuple_score['temps'], 'Score réalisé'=>$Tuple_score['nb_points']];
+    }
   }
 
   //Affichage des scores sous la forme d'un tableau pour que ce soit structuré

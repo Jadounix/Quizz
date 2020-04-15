@@ -77,7 +77,7 @@
             if($TupleQ['no_question']==$TupleR['no_question'] and $TupleQ['bonne_rep']==$TupleR['lib_rep']) //On cherche si la reponse est bien associée à la question
             {
               ?>
-               <br>
+               <br/>
                <input type="radio" name ="reponse<?php echo $i ?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
@@ -88,7 +88,7 @@
               if($mr==0) // Si aucune mauvaise réponse n'a encore été affichée
               {
               ?>
-               <br>
+               <br/>
                <input type="radio" name ="reponse<?php echo $i ?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
               <?php
@@ -109,7 +109,7 @@
             if($TupleQ['no_question']==$TupleR['no_question']) //On cherche si la reponse est bien associée à la question
             {
               ?>
-               <br>
+               <br/>
                <!-- Affichage des réponses sous le tyoe radio -->
                <input type="radio" name ="reponse<?php echo $i ?>" value="<?php echo $TupleR['lib_rep']?>">
                <label class="libelle_reponse"><?php echo $TupleR['lib_rep']?></label>
