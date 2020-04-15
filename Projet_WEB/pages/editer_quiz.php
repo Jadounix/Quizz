@@ -22,15 +22,20 @@
     require("../bdd/connect.php");
     $req_quiz = 'SELECT * FROM QUIZ ';
     $data_quiz = $bdd->query($req_quiz);
-    //On trouve la ligne qui correspond à l'id envoyé
-    //Oon récupère avec cette boucle for les données correspondantes au quiz sélectionné : nom, numéro et nombre de questions
-    for($i=1;$i<=$_GET['id'];$i++)
-    {
-      $Tuple=$data_quiz->fetch();
-      $nom_quiz = $Tuple['nom'];
-      $numero_quiz = $Tuple['no_quiz'];
-      $nb_question = $Tuple['nb_question'];
-    }
+
+    while($Tuple=$data_quiz->fetch())
+      {
+        if($Tuple['login_ad']==$_SESSION['login_entre']) //Le quiz correspond bien a l'utilisateur connecté
+        {
+          for($i=1;$i<=$_GET['id'];$i++) //On récupère avec cette boucle for les données correspondantes au quiz sélectionné : nom, numéro et nombre de questions
+          {
+            $nom_quiz = $Tuple['nom'];
+            $numero_quiz = $Tuple['no_quiz'];
+            $nb_question = $Tuple['nb_question'];
+            $Tuple=$data_quiz->fetch();
+          }
+        }
+      }
     ?>
     <h2><?php echo $nom_quiz ?></h2>
 
